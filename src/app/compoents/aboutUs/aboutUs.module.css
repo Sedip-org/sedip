@@ -1,0 +1,196 @@
+.about-us-container-name {
+  background: var(--Primary-Color, #110d57);
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  font-family: Manrope;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 40px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  padding: 30px 10px;
+}
+.about-us-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 80px;
+}
+.about-us-container-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.about-us-container-intro-left-part {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.about-us-container-intro-left-part h3 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.about-us-container-intro-left-part p {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0%;
+}
+.about-us-container-intro-right-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.about-us-container-intro-right-part-first-img {
+  width: 304px;
+  height: 384px;
+  border-radius: 8px;
+}
+.about-us-container-intro-right-part-second-images {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.about-us-container-intro-right-part-second-imgs {
+  width: 196px;
+  height: 198px;
+  border-radius: 8px;
+}
+/* .about-us-container-presentation {
+  background: var(--Primary-Color, #110d57);
+  color: #ffffff;
+  text-align: center;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  padding: 50px;
+  position: relative;
+} */
+.about-us-container-main-part {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  background: var(--Secondary-Color, #fafafa);
+  max-width: 1064px;
+  width: 100%;
+  max-height: 700px;
+  height: auto;
+  /* sorus burani */
+  border-radius: 20px;
+  box-shadow: 0px 2px 8px 0px #00000040;
+  padding: 20px 40px;
+  /* position:absolute;
+  top: 272px;
+  left: 108px; */
+}
+.about-us-container-main-part p {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .about-us-container {
+    padding: 20px 40px;
+  }
+  .about-us-container-name {
+    font-size: 14px;
+    line-height: 6.55px;
+    padding: 20px 10px;
+  }
+  .about-us-container-intro-left-part {
+    gap: 10px;
+  }
+  .about-us-container-intro-left-part h3 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .about-us-container-intro-left-part p {
+    font-size: 16px;
+  }
+  .about-us-container-intro-right-part-first-img {
+    width: 140px;
+    height: 220px;
+    border-radius: 4px;
+  }
+  .about-us-container-intro-right-part-second-imgs {
+    width: 167px;
+    height: 105px;
+    border-radius: 4px;
+  }
+  .about-us-container-main-part {
+    width: 450px;
+    max-height: 600px;
+    height: auto;
+    border-radius: 20px;
+    gap: 10px;
+  }
+  .about-us-container-main-part p {
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .about-us-container {
+    padding: 20px 40px;
+  }
+  .about-us-container-name {
+    font-size: 14px;
+    line-height: 6.55px;
+    padding: 20px 10px;
+  }
+  .about-us-container-intro {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-us-container-intro-left-part {
+    justify-content: center;
+    align-items: center;
+  }
+  .about-us-container-intro-left-part h3 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .about-us-container-intro-left-part p {
+    font-size: 16px;
+    text-align: center;
+  }
+  .about-us-container-intro-right-part-first-img {
+    width: 167px;
+    height: 224px;
+    border-radius: 4px;
+  }
+  .about-us-container-intro-right-part-second-imgs {
+    width: 167px;
+    height: 105px;
+    border-radius: 4px;
+  }
+  .about-us-container-main-part {
+    min-width: 315px;
+    width: 100%;
+    max-height: 700px;
+    height: auto;
+    border-radius: 20px;
+    gap: 20px;
+  }
+  .about-us-container-main-part p {
+    font-size: 12px;
+    line-height: 13px;
+  }
+}

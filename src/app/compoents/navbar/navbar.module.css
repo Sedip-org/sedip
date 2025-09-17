@@ -1,0 +1,123 @@
+.navbar-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-style: Medium;
+  line-height: 24px;
+  letter-spacing: 0%;
+  background-color: #f0f0f0;
+}
+
+.navbar-left-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.navbar-logo-name {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.navbar-right-part {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar-btn {
+  background: #110d57;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 9px;
+  padding: 10px 20px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar-container {
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 767px) {
+  .hamburger {
+    display: block;
+  }
+  .navbar-container-active {
+    border-bottom: 1px solid gray;
+  }
+
+  .navbar-part-with-btn {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: transparent;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navbar-part-with-btn-active {
+    background-color: #f0f0f0; /* bütün eni tutan fon */
+    max-height: 800px; /* açıldıqda hündürlük */
+    padding: 20px 0;
+  }
+
+  /* Qırmızı menyu ortada */
+  .navbar-right-part {
+    list-style: none;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navbar-right-part-active {
+    max-height: 500px;
+    background: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 20px 0;
+    margin: auto; /* ortada olsun */
+  }
+
+  .navbar-right-part li {
+    padding: 20px;
+    border-bottom: 1px solid var(--10-dark-color, #0000001a);
+    font-family: Manrope;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+  }
+  .navbar-right-part li:last-child {
+    border-bottom: none; /* axırıncıya xətt qoyma */
+  }
+  .navbar-btn-active {
+    width: 100%;
+    padding: 10px;
+  }
+}

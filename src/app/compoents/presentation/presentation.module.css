@@ -1,0 +1,137 @@
+.presentation-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 100px;
+  background: linear-gradient(225deg, rgb(10, 15, 71) 50%, rgb(52, 1, 68));
+  padding: 40px 80px;
+}
+.presentation-description {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  gap: 30px;
+  flex: 1;
+}
+.presentation-description h3 {
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 57.5px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.presentation-description p {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 25px;
+  line-height: 40px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.presentation-btn {
+  padding: 10px 20px;
+  opacity: 1;
+  border-radius: 8px;
+  gap: 10px;
+  background-color: #ffffff;
+  color: black;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  max-width: 600px;
+}
+.presentation-image {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 20px;
+  align-items: stretch;
+}
+.presentation-img {
+  width: 100%;
+  max-height: 450px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.presentation-img-right {
+  width: 100%;
+  border-radius: 5px;
+  max-height: 210px;
+  height: auto;
+}
+.presentation-image-left,
+.presentation-image-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.presentation-image-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.presentation-image-right img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .presentation-container {
+    gap: 40px;
+    padding: 20px 40px;
+  }
+
+  .presentation-description {
+    gap: 20px;
+  }
+
+  .presentation-description h3 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .presentation-description p {
+    font-size: 25px;
+    line-height: 28px;
+  }
+
+  .presentation-image {
+    gap: 15px;
+  }
+
+  .presentatin-image-left img {
+    object-fit: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .presentation-container {
+    gap: 15px;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .presentation-description {
+    gap: 10px;
+  }
+
+  .presentation-description h3 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .presentation-description p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .presentation-image {
+    gap: 10px;
+  }
+}

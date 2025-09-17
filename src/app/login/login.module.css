@@ -1,0 +1,142 @@
+.login-general-container {
+  background-color: #110d57;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-general-container-logo-design {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.login-general-container-logo-design img {
+  width: 140px;
+  height: 140px;
+}
+.login-general-container-logo-design h2 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 490px;
+  height: auto;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 30px 60px;
+  margin: 0 auto;
+}
+.login-container h1 {
+  color: var(--color-azure-10, #021131);
+  font-size: 30px;
+  line-height: line height/36_4;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 30px;
+}
+.login-container p {
+  color: #1d1d1d;
+  text-align: center;
+  font-size: 15px;
+}
+.login-container-input-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-container-input-detail {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: #ccc 0.3s ease;
+}
+.login-container-input-detail:focus {
+  outline: none;
+  border-color: #110d57;
+}
+.login-container button {
+  padding: 12px;
+  background: var(--Primary-Color, #110d57);
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-container button:hover {
+  background-color: #0056b3;
+}
+.login-container-check-acc {
+  font-weight: bold;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.login-container-register-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  color: gray;
+}
+.login-container-password-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  color: gray;
+}
+@media (max-width: 767px) {
+  .login-general-container-logo-design img {
+    width: 70px;
+    height: 70px;
+  }
+  .login-general-container-logo-design h2 {
+    font-size: 10px;
+  }
+  .login-container {
+    gap: 5px;
+    max-width: 300px;
+    width: 100%;
+    max-height: 700px;
+    height: auto;
+  }
+  .login-container h1 {
+    font-size: 15px;
+  }
+  .login-container-input-details {
+    margin-top: 20px;
+  }
+  .login-container-input-detail {
+    font-size: 10px;
+  }
+  .login-container-register-span,
+  .login-container-password-span {
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .login-container button {
+    padding: 6px;
+  }
+}

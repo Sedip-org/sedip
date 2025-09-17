@@ -1,0 +1,101 @@
+.signin-general-container{
+  background-color: #110d57;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.signin-general-container-logo-design {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.signin-general-container-logo-design img {
+  width: 140px;
+  height: 140px;
+}
+.signin-general-container-logo-design h2 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  max-width: 350px;
+  width: 90%;
+  max-height: 490px;
+  height: auto;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 20px 40px;
+  margin: 0 auto;
+}
+.signin-container h1 {
+  color: var(--color-azure-10, #021131);
+  font-size: 30px;
+  line-height: line height/36_4;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 30px;
+}
+.signin-container p {
+  color: #1d1d1d;
+  text-align: center;
+  font-size: 15px;
+}
+.signin-container-input-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.signin-container-input-detail {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: #ccc 0.3s ease;
+}
+.signin-container-input-detail:focus {
+  outline: none;
+  border-color: #110d57;
+}
+.signin-container button {
+  padding: 12px;
+  background: var(--Primary-Color, #110d57);
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+.signin-container button:hover {
+  background-color: #0056b3;
+}
+.signin-container-check-acc {
+  font-weight: bold;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.signin-container-input-detail-check-acc-label {
+  display: flex;
+  gap: 5px;
+}
+.signin-container-input-detail-login-link {
+  margin-left: 5px;
+  color: #110d57;
+}

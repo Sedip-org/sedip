@@ -1,0 +1,102 @@
+.intro-section-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 50px;
+  background: linear-gradient(225deg, rgb(10, 15, 71) 50%, rgb(52, 1, 68));
+  border-top: 1px solid #00023c;
+  padding: 40px 80px;
+  color: #ffffff;
+}
+.intro-section-description {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  flex: 2;
+  /* align-items: stretch; */
+  /* width: calc(100% - 220px); */
+}
+.intro-section-description h1 {
+  font-weight: 600;
+  line-height: 57.5px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  font-size: 40px;
+}
+.intro-section-description p {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 18px;
+  line-height: 35px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.intro-section-description button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  gap: 10px;
+  background-color: #ffffff;
+  color: black;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  max-width: 600px;
+}
+.intro-section-image {
+  max-width: 464px;
+  height: 400px;
+  flex: 1;
+}
+.intro-section-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .intro-section-container {
+    padding: 20px 40px;
+  }
+  .intro-section-description h1 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .intro-section-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 40px;
+    gap: 20px;
+  }
+
+  .intro-section-description {
+    gap: 15px;
+  }
+
+  .intro-section-description h1 {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .intro-section-description p,
+  .intro-section-description button {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .intro-section-description button {
+    width: 100%; /* take full width */
+    max-width: 100%; /* ignore any max-width */
+    flex: none; /* remove flex influence */
+    padding: 12px 0; /* vertical padding only */
+    margin: 0;
+  }
+
+  .intro-section-image {
+    width: 150px;
+    height: 150px;
+  }
+}

@@ -1,0 +1,119 @@
+.footer-general-container {
+  display: flex;
+  margin: 20px;
+  padding: 20px 40px;
+  border-top: 2px solid #0000001a;
+  border-bottom: 2px solid #0000001a;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+}
+.footer-left-part {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.footer-img-logo {
+  width: 100px;
+  height: 100px;
+}
+.footer-logo-container h2 {
+  font-weight: 600;
+  font-size: 16px;
+  color: #110d57;
+  line-height: 24px;
+  letter-spacing: 0%;
+  max-width: 150px;
+}
+.footer-social-network {
+  display: flex;
+  gap: 20px;
+}
+.footer-icon {
+  border: 1px solid #110d57;
+  border-radius: 50%;
+  padding: 5px;
+  width: 32px;
+  height: 32px; /* Kvadrat olsun ki dairə düzgün görünsün */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-right-part {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+}
+.footer-links-group {
+  color: #141212;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.footer-links-list {
+  list-style: none;
+}
+.footer-link {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+@media (max-width: 767px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .footer-left-part {
+    border-bottom: 1px solid #0000001a;
+    width: 100%; /* tam parent eni */
+    padding-bottom: 10px;
+    margin: 0; /* margin sil, padding border-i tənzimləyir */
+    box-sizing: border-box; /* padding border daxilində hesablansın */
+  }
+  .footer-container {
+    gap: 20px;
+  }
+  .footer-logo-container {
+    justify-content: start;
+  }
+  .footer-logo-container h2 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+  }
+  .footer-img-logo {
+    width: 32px;
+    height: 32px;
+  }
+  .footer-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .footer-links-group {
+    font-size: 12px;
+    line-height: 19.2px;
+  }
+  .footer-link {
+    font-size: 10px;
+    line-height: 19.2px;
+    padding: 2px;
+  }
+}
