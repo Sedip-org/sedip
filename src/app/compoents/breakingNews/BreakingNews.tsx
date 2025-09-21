@@ -61,7 +61,7 @@ export default function BreakingNews() {
             <Link
               key={singleNews.id}
               className={styles["breaking-news-item"]}
-              href={`/news-detail/${singleNews.id}`}
+              href={`/eventsDetail/${singleNews.id}`}
             >
               <div className={styles["breaking-news-left"]}>
                 <img

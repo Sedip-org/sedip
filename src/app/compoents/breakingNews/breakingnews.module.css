@@ -15,12 +15,15 @@
 .breaking-news-container {
   display: flex;
   gap: 3rem;
+  align-items: stretch;
 }
 .breaking-news-left-part {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
   width: 50%;
+  flex: 1;
+  height: 100%;
 }
 .breaking-news-left-img {
   border-radius: 0.625rem;
@@ -55,6 +58,8 @@
   gap: 1.875rem;
   width: 50%;
   align-items: center;
+  flex: 1;
+  height: 100%;
 }
 .breaking-news {
   display: flex;

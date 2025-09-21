@@ -141,7 +141,7 @@
   /* 767px */
   .general-news-container-name {
     padding: 0.625rem; /* 10px */
-    font-size: 0.875rem; /* 14px */
+    font-size: 10px;
     line-height: 0.4375rem; /* 7px */
   }
   .general-news-container {
@@ -165,7 +165,7 @@
     width: 100%;
   }
   .general-news-right-part h4 {
-    font-size: 0.875rem; /* 14px */
+    font-size: 9px;
     line-height: 0.875rem; /* 14px */
   }
   .general-news-right-part p {
