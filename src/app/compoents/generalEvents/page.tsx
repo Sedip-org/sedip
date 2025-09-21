@@ -52,7 +52,7 @@ export default function GeneralEvents() {
                   {singleEvent.created_at}
                 </p>
                 <button className={styles["event-other-details-btn"]}>
-                  Join Us
+                  Join
                 </button>
               </div>
             </Link>

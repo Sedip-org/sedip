@@ -1,137 +1,137 @@
 .contact-container-intro {
-  padding: 40px 80px;
-  margin-top: 50px;
+  padding: 2.5rem 5vw;
+  margin-top: 3.125rem;
 }
 .contact-container {
   display: flex;
   justify-content: space-around;
-  gap: 50px;
-  padding: 30px 40px;
+  gap: 3rem;
+  padding: 1.875rem 2.5vw;
   background: var(--Primary-Color, #110d57);
   color: #ffffff;
 }
 .contact-container-left-part {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.9375rem;
   width: 40%;
 }
 .contact-container-part-label {
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
   display: inline-block;
 }
 .contact-part-input {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 16px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
   font-family: inherit;
   box-sizing: border-box;
   transition: border 0.3s, box-shadow 0.3s;
 }
 .contact-part-textarea {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 16px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
   font-family: inherit;
   box-sizing: border-box;
   transition: border 0.3s, box-shadow 0.3s;
   background-color: #f9f9f9;
-  min-height: 120px;
+  min-height: 7.5rem;
   resize: vertical;
 }
 
 .contact-part-input:focus {
   border-color: #4a90e2;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 0 0 0.1875rem rgba(74, 144, 226, 0.3);
 }
 
 .contact-btn {
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
   background: none;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0.25rem 0.75rem rgba(255, 255, 255, 0.2);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 .contact-btn:hover {
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0.375rem 1.125rem rgba(255, 255, 255, 0.3);
+  transform: translateY(-0.125rem);
 }
 .contact-container-right-part {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2.5rem;
   align-items: center;
   width: 60%;
-  padding: 40px 20px;
+  padding: 2.5rem 1.25rem;
 }
 .contact-container-right-part h2 {
   font-weight: 500;
   font-style: Medium;
-  font-size: 24px;
-  letter-spacing: 0%;
+  font-size: 1.5rem;
+  letter-spacing: 0;
   text-align: center;
 }
 .contact-container-right-part p {
   font-weight: 500;
   font-style: Medium;
-  font-size: 24px;
-  letter-spacing: 0%;
+  font-size: 1.5rem;
+  letter-spacing: 0;
   text-align: center;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48em) and (max-width: 64em) {
   .contact-container-intro {
-    padding: 20px 40px;
+    padding: 1.25rem 2.5vw;
   }
   .contact-part-textarea {
-    min-height: 90px;
+    min-height: 5.625rem;
   }
   .contact-container-right-part h2 {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
   .contact-container-right-part p {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 48em) {
   .contact-container-intro {
-    padding: 20px 40px;
+    padding: 1.25rem 2.5vw;
   }
   .contact-container {
     flex-direction: column-reverse;
-    gap: 10px;
-    padding: 15px 20px;
+    gap: 0.625rem;
+    /* padding: 0.9375rem 1.25vw; */
   }
   .contact-container-left-part {
     width: 100%;
   }
   .contact-part-input {
-    padding: 6px 8px;
+    padding: 0.375rem 0.5rem;
   }
   .contact-part-textarea {
-    min-height: 70px;
+    min-height: 4.375rem;
   }
   .contact-container-right-part {
     width: 100%;
-    gap: 20px;
-    padding: 20px;
+    gap: 1.25rem;
+    padding: 1.25rem;
   }
   .contact-container-right-part h2 {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
   .contact-container-right-part p {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
   }
 }

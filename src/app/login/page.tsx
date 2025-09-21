@@ -41,12 +41,12 @@ export default function LogIn() {
         >
           Register
         </Link>
-        <Link
+        {/* <Link
           className={styles["login-container-password-span"]}
-          href="/signin"
+          href="/resetPassword"
         >
           Forgot your password
-        </Link>
+        </Link> */}
       </form>
     </div>
   );

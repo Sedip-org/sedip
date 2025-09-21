@@ -3,7 +3,7 @@ import styles from "./breakingnews.module.css";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
-interface News {
+interface Events {
   id: string;
   name: string;
   author: string;
@@ -13,7 +13,7 @@ interface News {
 }
 
 export default function BreakingNews() {
-  const [news, setNews] = useState<News[]>([]);
+  const [news, setNews] = useState<Events[]>([]);
 
   useEffect(() => {
     fetchNews();
@@ -21,10 +21,9 @@ export default function BreakingNews() {
 
   async function fetchNews() {
     const { data, error } = await supabase
-      .from("news")
+      .from("events")
       .select("*")
-      .order("created_at", { ascending: false });
-
+      .order("created_at", { ascending: false })
     if (error) {
       console.error("Error fetching news:", error);
     } else {
@@ -62,7 +61,7 @@ export default function BreakingNews() {
             <Link
               key={singleNews.id}
               className={styles["breaking-news-item"]}
-              href={`/news/${singleNews.id}`}
+              href={`/news-detail/${singleNews.id}`}
             >
               <div className={styles["breaking-news-left"]}>
                 <img

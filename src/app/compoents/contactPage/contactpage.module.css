@@ -2,70 +2,70 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 3rem;
   justify-content: center;
-  border-radius: 20px;
-  box-shadow: 0px 2px 8px 0px #00000040;
+  border-radius: 1.25rem;
+  box-shadow: 0 0.125rem 0.5rem 0 #00000040;
   background: var(--Secondary-Color, #fafafa);
   margin: 0 auto;
-  padding: 50px;
+  padding: 3rem;
 }
 .main-contact-container-general-name {
   font-weight: 500;
   font-style: Medium;
-  font-size: 40px;
-  line-height: 33px;
-  letter-spacing: 0%;
+  font-size: 2.5rem;
+  line-height: 2.0625rem;
+  letter-spacing: 0;
   vertical-align: middle;
 }
 .main-contact-container {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 3rem;
 }
 .main-contact-container-left-part {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 .main-contact-container-left-part h3,
 .main-contact-container-right-part h3 {
   font-weight: 500;
   font-style: Medium;
-  font-size: 24px;
-  line-height: 24px;
-  letter-spacing: 0%;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
 }
 .main-contact-container-left-part p,
 .main-contact-container-right-part p {
   font-weight: 500;
   font-style: Medium;
-  font-size: 12px;
-  line-height: 100%;
-  letter-spacing: 0%;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0;
   color: #0f172a80;
 }
 .main-contact-container-primary-info {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 .main-contact-container-details {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1.875rem;
 }
 .main-contact-container-detail {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 }
 .main-contact-container-detail-input,
 .main-contact-container-detail-textarea {
-  padding: 12px 15px;
+  padding: 0.75rem 0.9375rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
   transition: border-color 0.3s ease;
 }
 .main-contact-container-detail-input:focus,
@@ -75,35 +75,35 @@
 }
 
 .main-contact-container-detail-textarea {
-  min-height: 120px;
+  min-height: 7.5rem;
   resize: vertical;
 }
 .main-contact-container button {
-  padding: 12px;
+  padding: 0.75rem;
   background: var(--Primary-Color, #110d57);
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .main-contact-container-right-part {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 .contact-social-network {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
 }
 .contact-icon {
   background-color: #110d57;
   color: white !important;
   border-radius: 50%;
-  padding: 5px;
-  width: 32px;
-  height: 32px;
+  padding: 0.3125rem;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,68 +111,68 @@
 .contact-map-detail {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1.875rem;
 }
 .map-wrapper {
-  max-width: 600px;
-  border-radius: 8px;
+  max-width: 37.5rem;
+  border-radius: 0.5rem;
 }
 .map-frame {
   width: 100%;
-  border-radius: 10px;
-  height: 380px;
+  border-radius: 0.625rem;
+  height: 23.75rem;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48em) and (max-width: 64em) {
   .main-contact-container-general {
-    gap: 20px;
-    padding: 20px;
+    gap: 1.25rem;
+    padding: 1.25rem;
   }
   .main-contact-container-general-name {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 48px;
+    font-size: 1.5rem;
+    line-height: 3rem;
   }
   .main-contact-container {
     align-items: start;
   }
   .main-contact-container-left-part {
-    padding: 10px;
-    gap: 10px;
+    padding: 0.625rem;
+    gap: 0.625rem;
   }
   .main-contact-container-detail label {
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: bold;
   }
   .main-contact-container-detail-input,
   .main-contact-container-detail-textarea {
-    padding: 6px 10px;
-    font-size: 10px;
-    line-height: 20px;
+    padding: 0.375rem 0.625rem;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
   }
   .main-contact-container button {
-    padding: 8px;
+    padding: 0.5rem;
   }
   .main-contact-container-right-part {
-    gap: 25px;
+    gap: 1.5625rem;
     justify-content: center;
   }
   .map-frame {
-    border-radius: 8px;
-    height: 300px;
+    border-radius: 0.5rem;
+    height: 18.75rem;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 48em) {
   .main-contact-container-general {
     background-color: transparent;
     border: none;
     box-shadow: none;
-    gap: 20px;
-    padding: 20px;
+    gap: 1.25rem;
+    padding: 1.25rem;
   }
   .main-contact-container-general-name {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 48px;
+    font-size: 1.5rem;
+    line-height: 3rem;
   }
   .main-contact-container {
     flex-direction: column;
@@ -181,14 +181,14 @@
     box-shadow: none;
   }
   .main-contact-container-left-part {
-    box-shadow: 0px 0.72px 2.9px 0px #00000040;
+    box-shadow: 0 0.045rem 0.18rem 0 #00000040;
     background: var(--Secondary-Color, #fafafa);
     width: 100%;
-    max-height: 550px;
+    max-height: 34.375rem;
     height: auto;
-    border-radius: 10px;
-    padding: 10px;
-    gap: 10px;
+    border-radius: 0.625rem;
+    padding: 0.625rem;
+    gap: 0.625rem;
     margin: 0 auto;
   }
   .main-contact-container-primary-info {
@@ -198,31 +198,31 @@
   }
   .main-contact-container-detail {
     width: 100%;
-    gap: 5px;
+    gap: 0.3125rem;
   }
   .main-contact-container-detail label {
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: bold;
   }
   .main-contact-container-detail-input,
   .main-contact-container-detail-textarea {
-    padding: 6px 10px;
-    font-size: 10px;
-    line-height: 20px;
+    padding: 0.375rem 0.625rem;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
   }
   .main-contact-container button {
-    padding: 8px;
+    padding: 0.5rem;
   }
   .main-contact-container-right-part {
-    gap: 10px;
+    gap: 0.625rem;
     justify-content: center;
   }
   .map-wrapper {
     max-width: 100%;
   }
   .map-frame {
-    border-radius: 8px;
-    max-height: 700px;
+    border-radius: 0.5rem;
+    max-height: 43.75rem;
     height: auto;
     width: 100% !important;
   }

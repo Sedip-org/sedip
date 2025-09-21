@@ -1,22 +1,27 @@
-.signin-general-container{
+.signin-general-container {
   background-color: #110d57;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
 }
+
 .signin-general-container-logo-design {
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
+
 .signin-general-container-logo-design img {
   width: 140px;
   height: 140px;
 }
+
 .signin-general-container-logo-design h2 {
   color: #ffffff;
   font-weight: 600;
@@ -25,77 +30,190 @@
   letter-spacing: 0%;
   text-align: center;
 }
+
 .signin-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
-  max-width: 350px;
-  width: 90%;
-  max-height: 490px;
-  height: auto;
+  max-width: 500px;
+  width: 100%;
+  min-height: auto;
   border-radius: 20px;
   background: #ffffff;
-  padding: 20px 40px;
+  padding: 40px;
   margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 .signin-container h1 {
-  color: var(--color-azure-10, #021131);
+  color: #021131;
   font-size: 30px;
-  line-height: line height/36_4;
-  letter-spacing: 0%;
+  font-weight: 600;
   text-align: center;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 30px;
+  margin-bottom: 5px;
 }
+
 .signin-container p {
   color: #1d1d1d;
   text-align: center;
   font-size: 15px;
 }
+
 .signin-container-input-details {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
+  margin-bottom: 15px;
 }
+
 .signin-container-input-detail {
-  padding: 12px 15px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  transition: #ccc 0.3s ease;
+  transition: border-color 0.3s ease;
+  width: 100%;
 }
+
 .signin-container-input-detail:focus {
   outline: none;
   border-color: #110d57;
 }
+
 .signin-container button {
-  padding: 12px;
-  background: var(--Primary-Color, #110d57);
+  padding: 15px;
+  background: #110d57;
   color: white;
   font-size: 16px;
+  font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 100%;
-  margin-top: 10px;
+  margin-bottom: 15px;
 }
+
 .signin-container button:hover {
-  background-color: #0056b3;
+  background-color: #0d0a45;
 }
+
 .signin-container-check-acc {
   font-weight: bold;
-  letter-spacing: 0%;
-  vertical-align: middle;
+  text-align: center;
+  color: #021131;
 }
+
 .signin-container-input-detail-check-acc-label {
   display: flex;
   gap: 5px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #1d1d1d;
 }
+
+.signin-container-input-detail-check-acc-label input[type="checkbox"] {
+  margin-right: 5px;
+}
+
 .signin-container-input-detail-login-link {
-  margin-left: 5px;
-  color: #110d57;
+  color: gray;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.signin-container-input-detail-login-link:hover {
+  color: #0d0a45;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signin-general-container {
+    padding: 15px;
+    align-items: stretch;
+  }
+
+  .signin-general-container-logo-design {
+    margin-bottom: 20px;
+  }
+
+  .signin-general-container-logo-design img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .signin-general-container-logo-design h2 {
+    font-size: 16px;
+  }
+
+  .signin-container {
+    max-width: 100%;
+    padding: 30px 20px;
+    gap: 8px;
+  }
+
+  .signin-container h1 {
+    font-size: 24px;
+  }
+
+  .signin-container p {
+    font-size: 14px;
+  }
+
+  .signin-container-input-detail {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .signin-container button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .signin-container-input-detail-check-acc-label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signin-general-container {
+    padding: 10px;
+  }
+
+  .signin-container {
+    padding: 20px 15px;
+    border-radius: 15px;
+  }
+
+  .signin-container h1 {
+    font-size: 20px;
+  }
+
+  .signin-container-input-detail {
+    padding: 10px;
+  }
+
+  .signin-container-input-detail-check-acc-label {
+    font-size: 12px;
+    gap: 3px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .signin-general-container {
+    padding-top: 20px;
+  }
+
+  .signin-general-container-logo-design {
+    margin-bottom: 15px;
+  }
+
+  .signin-general-container-logo-design img {
+    width: 60px;
+    height: 60px;
+  }
 }

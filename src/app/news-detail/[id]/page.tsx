@@ -42,28 +42,27 @@ export default function NewsDetail() {
     <div className={styles["general-news-container"]}>
       <h1 className={styles["general-news-container-name"]}>{newsItem.name}</h1>
       <div className={styles["general-news-presentation"]}>
-        <div className={styles["general-news-left-part"]}>
-          <img
-            src={newsItem.image}
-            alt={newsItem.name}
-            className={styles["general-news-left-part-img"]}
-          />
-        </div>
         <div className={styles["general-news-right-part"]}>
           <h4>{newsItem.name}</h4>
-          <p>{newsItem.content}</p>
-          <div className={styles["general-news-details"]}>
+          <p>
+            <img
+              src={newsItem.image}
+              alt={newsItem.name}
+              className={styles["general-news-left-part-img"]}
+            />
+            {newsItem.content}
+          </p>
+          {/* <div className={styles["general-news-details"]}>
             <p className={styles["general-news-hour"]}>{newsItem.created_at}</p>
             <p className={styles["general-news-loc"]}>{newsItem.author}</p>
-          </div>
+          </div> */}
         </div>
       </div>
-      <div>
+      {/* <div>
         <p className={styles["general-news-additionals"]}>
-          {/* Əlavə məlumat varsa buraya əlavə edə bilərsiniz */}
           Stay tuned for more updates on this breaking news.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }

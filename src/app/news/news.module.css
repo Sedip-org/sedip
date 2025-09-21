@@ -2,26 +2,26 @@
   background: var(--Primary-Color, #110d57);
   color: #ffffff;
   text-align: center;
-  padding: 20px;
+  padding: 1.25rem;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 2.5rem;
   line-height: 1.2;
   letter-spacing: 0;
   vertical-align: middle;
 }
 
 .main-news-container {
-  padding: 50px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 3.125rem;
+  box-shadow: 0rem 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
   background-color: #fafafa;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   box-sizing: border-box;
 }
 
 .main-news-details {
   display: flex;
   flex-wrap: wrap; /* responsive üçün */
-  gap: 100px;
+  gap: 6.25rem;
   justify-content: center;
 }
 
@@ -30,36 +30,36 @@
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  width: 250px; /* hər bir kartın eni */
-  gap: 15px;
+  width: 15.625rem; /* hər bir kartın eni */
+  gap: 0.9375rem;
 }
 
 .main-news-img {
   width: 100%;
-  height: 200px;
+  height: 12.5rem;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 .main-news-other-details p {
   font-weight: bold;
-  font-size: 20px;
-  padding: 5px;
+  font-size: 1.25rem;
+  padding: 0.3125rem;
 }
 
 .main-news-other-details-btn {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background-color: var(--Primary-Color, #110d57);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
 }
 
 /* Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48rem) and (max-width: 64rem) {
   .main-news-container-name {
-    font-size: 24px;
-    padding: 15px;
+    font-size: 1.5rem;
+    padding: 0.9375rem;
   }
   .main-news-detail {
     width: 45%;
@@ -67,21 +67,21 @@
 }
 
 /* Mobil */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .main-news-container-name {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 1.25rem;
+    padding: 0.625rem;
   }
   .main-news-detail {
     width: 100%;
   }
   .main-news-img {
-    height: 120px;
+    height: 7.5rem;
   }
   .main-news-other-details p {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .main-news-other-details-btn {
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
   }
 }
