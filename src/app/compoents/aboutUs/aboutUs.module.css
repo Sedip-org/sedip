@@ -46,7 +46,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .about-us-container-intro-right-part-first-img {
   width: 19vw;
@@ -62,7 +62,7 @@
 }
 .about-us-container-intro-right-part-second-imgs {
   width: 12vw;
-  height: 12vw;
+  height: 10vw;
   border-radius: 0.5rem;
   max-width: 196px;
   max-height: 198px;
@@ -123,15 +123,15 @@
     font-size: 1rem;
   }
   .about-us-container-intro-right-part-first-img {
-    width: 12vw;
-    height: 18vw;
+    width: 60vw;
+    height: 60vw;
     border-radius: 0.25rem;
     max-width: 140px;
     max-height: 220px;
   }
   .about-us-container-intro-right-part-second-imgs {
-    width: 12vw;
-    height: 8.5vw;
+    width: 27vw;
+    height: 27vw;
     border-radius: 0.25rem;
     max-width: 167px;
     max-height: 105px;
@@ -175,15 +175,15 @@
     text-align: center;
   }
   .about-us-container-intro-right-part-first-img {
-    width: 17vw;
-    height: 24vw;
+    width: 40vw;
+    height: 40vw;
     border-radius: 0.25rem;
     max-width: 167px;
     max-height: 224px;
   }
   .about-us-container-intro-right-part-second-imgs {
-    width: 11.5vw;
-    height: 11.2vw;
+    width: 19vw;
+    height: 19vw;
     border-radius: 0.25rem;
     max-width: 167px;
     max-height: 105px;
