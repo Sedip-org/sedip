@@ -1,52 +1,77 @@
+"use client";
 import styles from "./login.module.css";
 import Link from "next/link";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase"; // lib/supabase.ts faylından
+import { useRouter } from "next/navigation";
 export default function LogIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      setErrorMessage(error.message);
+    } else {
+      alert("Logged in successfully!");
+      router.push("/");
+    }
+  };
+
   return (
     <div className={styles["login-general-container"]}>
       <div className={styles["login-general-container-logo-design"]}>
         <img src="/images/logo.png" alt="logo" />
         <h2>
-          Sustainable<br></br> Development<br></br> Science and<br></br>{" "}
-          Innovation
+          Sustainable
+          <br /> Development
+          <br /> Science and
+          <br /> Innovation
         </h2>
-        <p></p>
       </div>
-      <form className={styles["login-container"]}>
+
+      <form className={styles["login-container"]} onSubmit={handleSubmit}>
         <h1>Log In</h1>
         <p>Fill your log in details below</p>
+
         <div className={styles["login-container-input-details"]}>
           <input
             type="email"
-            name="email"
-            id=""
             placeholder="Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className={styles["login-container-input-detail"]}
           />
           <input
             type="password"
-            name="password"
-            id=""
             placeholder="Your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className={styles["login-container-input-detail"]}
           />
         </div>
-        <button>Log In</button>
+
+        <button type="submit">Log In</button>
+
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+
         <p>OR</p>
         <p className={styles["login-container-check-acc"]}>
-          Don`t you have an account?
+          Don`t you have an account?{" "}
+          <Link
+            className={styles["login-container-register-span"]}
+            href="/signin"
+          >
+            Register
+          </Link>
         </p>
-        <Link
-          className={styles["login-container-register-span"]}
-          href="/signin"
-        >
-          Register
-        </Link>
-        {/* <Link
-          className={styles["login-container-password-span"]}
-          href="/resetPassword"
-        >
-          Forgot your password
-        </Link> */}
       </form>
     </div>
   );

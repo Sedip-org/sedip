@@ -45,6 +45,7 @@
   outline: none;
   border-radius: 0.5625rem;
   padding: 0.625rem 1.25rem;
+  cursor: pointer;
 }
 
 .hamburger {

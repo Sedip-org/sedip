@@ -83,8 +83,8 @@
 }
 @media (min-width: 48em) and (max-width: 64em) {
   .presentation-container {
-    gap: 2.5rem;
-    padding: 1.25rem 2.5vw;
+    gap: 3.5rem;
+    padding: 15px;
   }
 
   .presentation-description {
@@ -105,8 +105,11 @@
     gap: 0.9375rem;
   }
 
-  .presentatin-image-left img {
-    object-fit: none;
+  .presentation-image-left {
+    min-width: 150px;
+  }
+  .presentation-image-right {
+    min-width: 120px;
   }
 }
 
@@ -115,7 +118,7 @@
     gap: 0.9375rem;
     align-items: stretch;
     justify-content: space-between;
-    padding: 0.625rem 1.25vw;
+    padding: 5px;
   }
 
   .presentation-description {
@@ -134,4 +137,18 @@
   .presentation-image {
     gap: 0.625rem;
   }
+  .presentation-image-left {
+    min-width: 120px;
+  }
+  .presentation-image-right {
+    min-width: 100px;
+  }
+  /* .presentation-image {
+    height: 100%;
+    max-height: 300px;
+  }
+  .presentation-img-right {
+    height: 100%;
+    max-height: 120px;
+  } */
 }

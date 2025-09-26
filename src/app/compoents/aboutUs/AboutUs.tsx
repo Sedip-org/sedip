@@ -1,6 +1,5 @@
 import styles from "./aboutUs.module.css";
 
-
 export default function AboutUs() {
   return (
     <>
@@ -24,7 +23,7 @@ export default function AboutUs() {
               }
             >
               <img
-                src=""
+                src="/images/who-we-are.jpg"
                 className={
                   styles["about-us-container-intro-right-part-first-img"]
                 }
@@ -36,13 +35,13 @@ export default function AboutUs() {
               }
             >
               <img
-                src=""
+                src="/images/who-we-are-first.jpg"
                 className={
                   styles["about-us-container-intro-right-part-second-imgs"]
                 }
               />
               <img
-                src=""
+                src="/images/who-we-are-second.jpg"
                 className={
                   styles["about-us-container-intro-right-part-second-imgs"]
                 }
