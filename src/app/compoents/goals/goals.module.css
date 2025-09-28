@@ -2,7 +2,7 @@
   display: flex;
   padding: 2.5rem 5vw;
   color: #ffffff;
-  gap: 5.625rem;
+  gap: 5rem;
   justify-content: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -42,6 +42,7 @@
   font-size: 1.7rem;
   font-weight: 900;
   line-height: 2.5rem;
+  color: white;
 }
 
 .card-content {
@@ -57,7 +58,6 @@
   color: #ffffff; /* White text */
   opacity: 0.9; /* Slightly transparent for softer look */
   margin-bottom: 0;
-
   letter-spacing: 0.01em; /* Slight letter spacing */
 }
 @media (min-width: 48em) and (max-width: 64em) {
@@ -68,6 +68,7 @@
     width: 100%;
     max-width: 18.75rem;
     height: auto;
+    margin: 0 auto;
   }
   .card-title {
     font-size: 1.25rem;
@@ -90,6 +91,7 @@
     width: 100%;
     max-width: 15rem;
     min-height: 21rem;
+    margin: 0 auto;
   }
   .card-title {
     font-size: 0.9375rem;

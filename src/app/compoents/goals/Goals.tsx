@@ -1,49 +1,85 @@
+"use client";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import styles from "./goals.module.css";
-export default function Goals() {
+
+export default function GoalsSlider() {
   return (
-    <div className={styles["goals-container"]}>
-      <div className={styles["card"]}>
-        <h3 className={styles["card-title"]}>Sustanaible Economy: Future</h3>
-        <div className={styles["card-content"]}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Laboriosam, et accusantium! Labore voluptatem deleniti illum quod
-            placeat recusandae commodi ullam tempora, a esse laborum aspernatur.
-            Sapiente labore nam optio provident!
-          </p>
-        </div>
-      </div>
-      <div className={styles["card"]}>
-        <h3 className={styles["card-title"]}>Sustanaible Economy: Future</h3>
-        <div className={styles["card-content"]}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Laboriosam, et accusantium! Labore voluptatem deleniti illum quod
-            placeat recusandae commodi ullam tempora, a esse laborum aspernatur.
-            Sapiente labore nam optio provident!
-          </p>
-        </div>
-      </div>
-      <div className={styles["card"]}>
-        <h3 className={styles["card-title"]}>Sustanaible Economy: Future</h3>
-        <div className={styles["card-content"]}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Laboriosam, et accusantium!
-          </p>
-        </div>
-      </div>
-      <div className={styles["card"]}>
-        <h3 className={styles["card-title"]}>Sustanaible Economy: Future</h3>
-        <div className={styles["card-content"]}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Laboriosam, et accusantium! Labore voluptatem deleniti illum quod
-            placeat recusandae commodi ullam tempora, a esse laborum aspernatur.
-            Sapiente labore nam optio provident!
-          </p>
-        </div>
-      </div>
+    <div
+      style={{ width: "90%", margin: "0 auto" }}
+      className={styles["goals-container"]}
+    >
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000 }}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1376: { slidesPerView: 4 },
+        }}
+      >
+        <SwiperSlide>
+          <div className={styles["card"]}>
+            <h3 className={styles["card-title"]}>
+              Sustainable Economy
+            </h3>
+            <div className={styles["card-content"]}>
+              <p>
+                A platform where experts meet to discuss climate change, green
+                energy, and sustainable economic development. Innovative
+                approaches, new business models, and ecological solutions will
+                be explored.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className={styles["card"]}>
+            <h3 className={styles["card-title"]}>Green Energy</h3>
+            <div className={styles["card-content"]}>
+              <p>
+                A sustainable economy is not only about today but also about
+                tomorrow. This session will focus on clean energy, digital
+                transformation, and inclusive financial opportunities.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles["card"]}>
+            <h3 className={styles["card-title"]}>Technology Innovation</h3>
+            <div className={styles["card-content"]}>
+              <p>
+                The world economy is increasingly driven by green technologies.
+                Our aim is to bring together innovative approaches that benefit
+                both business and society.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles["card"]}>
+            <h3 className={styles["card-title"]}>Global Community</h3>
+            <div className={styles["card-content"]}>
+              <p>
+                The economy of the future will be built on environmental
+                responsibility, social justice, and technological innovation.
+                Together, we can take steps toward a greener and fairer world.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 }

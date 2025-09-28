@@ -1,3 +1,4 @@
+
 "use client";
 import styles from "./news.module.css";
 import { useEffect, useState } from "react";
