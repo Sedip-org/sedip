@@ -78,11 +78,6 @@ export default function Footer() {
                   News
                 </Link>
               </li>
-              <li>
-                <Link href="/contact" className={styles["footer-link"]}>
-                  Contact
-                </Link>
-              </li>
             </ul>
           </div>
           <div className={styles["footer-links-group"]}>
@@ -104,14 +99,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/account" className={styles["footer-link"]}>
+                {/* <Link href="/account" className={styles["footer-link"]}>
                   User Account
                 </Link>
               </li>
               <li>
                 <Link href="/reset-password" className={styles["footer-link"]}>
                   Reset Password
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </div>
