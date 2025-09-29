@@ -109,26 +109,41 @@ export default function ContactPage() {
             Head of Product Customer Platform
           </p>
           <div className={styles["contact-social-network"]}>
-            <FaFacebookF
-              size={24}
-              color="#110D57"
-              className={styles["contact-icon"]}
-            />
-            <FaTwitter
-              size={24}
-              color="#110D57"
-              className={styles["contact-icon"]}
-            />
-            <FaLinkedinIn
-              size={24}
-              color="#110D57"
-              className={styles["contact-icon"]}
-            />
-            <CiInstagram
-              size={24}
-              color="#110D57"
-              className={styles["contact-icon"]}
-            />
+            <a
+              href="https://www.facebook.com/profile.php?id=61581347322487"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF
+                size={24}
+                color="#110D57"
+                className={styles["contact-icon"]}
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/sedip-platform/?viewAsMember=truee"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn
+                size={24}
+                color="#110D57"
+                className={styles["contact-icon"]}
+              />
+            </a>
+
+            <a
+              href="https://www.instagram.com/sediporg/followers/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CiInstagram
+                size={24}
+                color="#110D57"
+                className={styles["contact-icon"]}
+              />
+            </a>
           </div>
           <div className={styles["main-contact-container-map"]}>
             <div className={styles["map-wrapper"]}>

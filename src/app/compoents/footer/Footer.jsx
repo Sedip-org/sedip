@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
           <div className={styles["footer-social-network"]}>
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/profile.php?id=61581347322487"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -29,18 +29,6 @@ export default function Footer() {
                 className={styles["footer-icon"]}
               />
             </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter
-                size={24}
-                color="#110D57"
-                className={styles["footer-icon"]}
-              />
-            </a>
-
             <a
               href="https://www.linkedin.com/company/sedip-platform/?viewAsMember=true"
               target="_blank"
@@ -81,12 +69,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className={styles["footer-link"]}>
+                <Link href="/events" className={styles["footer-link"]}>
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/services" className={styles["footer-link"]}>
+                <Link href="/news" className={styles["footer-link"]}>
                   News
                 </Link>
               </li>
@@ -101,12 +89,12 @@ export default function Footer() {
             <h3>Membership</h3>
             <ul className={styles["footer-links-list"]}>
               <li>
-                <Link href="/signin" className={styles["footer-link"]}>
+                <Link href="/login" className={styles["footer-link"]}>
                   Sign in
                 </Link>
               </li>
               <li>
-                <Link href="/signup" className={styles["footer-link"]}>
+                <Link href="/signin" className={styles["footer-link"]}>
                   Sign up
                 </Link>
               </li>
