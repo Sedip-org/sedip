@@ -35,6 +35,8 @@
 
 .card-title {
   width: 100%;
+  min-height: 100px;
+  height: auto;
   padding: 1.25rem;
   background-image: url("/images/card-background.webp");
   background-size: cover;
@@ -43,6 +45,8 @@
   font-weight: 900;
   line-height: 2.5rem;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 .card-content {

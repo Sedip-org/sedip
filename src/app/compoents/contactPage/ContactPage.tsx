@@ -1,8 +1,39 @@
+"use client";
+
+import { useRef, useState, FormEvent } from "react";
 import styles from "./contactpage.module.css";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
+import emailjs from "emailjs-com";
 
 export default function ContactPage() {
+  const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<string>("");
+
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_wd39gd8", // EmailJS Service ID
+        "template_40t1wcs", // EmailJS Template ID
+        form.current,
+        "8-FibKJW0XagsC3FV" // EmailJS Public Key
+      )
+      .then(
+        () => {
+          setStatus("✅ Message sent successfully!");
+          e.currentTarget.reset();
+        },
+        (error: any) => {
+          console.log("FAILED...", error.text);
+          setStatus("❌ Failed to send. Please try again.");
+        }
+      );
+  };
+
   return (
     <div className={styles["main-contact-container-general"]}>
       <h1 className={styles["main-contact-container-general-name"]}>
@@ -12,10 +43,15 @@ export default function ContactPage() {
         <div className={styles["main-contact-container-left-part"]}>
           <h3>Send Message</h3>
           <p>
-            Product Management Masterclass, you will learn with Sarah Johnson -
-            Head of Product Customer Platform{" "}
+            Get in touch with us to learn more about our initiatives, events,
+            and collaboration opportunities.
           </p>
-          <div className={styles["main-contact-container-details"]}>
+
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className={styles["main-contact-container-details"]}
+          >
             <div className={styles["main-contact-container-primary-info"]}>
               <div className={styles["main-contact-container-detail"]}>
                 <label htmlFor="name">Name</label>
@@ -24,6 +60,7 @@ export default function ContactPage() {
                   name="name"
                   placeholder="Enter your name"
                   className={styles["main-contact-container-detail-input"]}
+                  required
                 />
               </div>
               <div className={styles["main-contact-container-detail"]}>
@@ -31,33 +68,40 @@ export default function ContactPage() {
                 <input
                   type="text"
                   name="surname"
-                  id=""
                   placeholder="Enter your surname"
                   className={styles["main-contact-container-detail-input"]}
+                  required
                 />
               </div>
             </div>
+
             <div className={styles["main-contact-container-detail"]}>
               <label htmlFor="email">Email</label>
               <input
                 type="email"
                 name="email"
-                id=""
                 placeholder="Enter your email"
                 className={styles["main-contact-container-detail-input"]}
+                required
               />
             </div>
+
             <div className={styles["main-contact-container-detail"]}>
-              <label htmlFor="">Your message</label>
+              <label htmlFor="message">Your message</label>
               <textarea
+                name="message"
+                placeholder="Your message"
                 className={styles["main-contact-container-detail-textarea"]}
-              >
-                Your message
-              </textarea>
+                required
+              />
             </div>
-            <button>Submit</button>
-          </div>
+
+            <button type="submit">Submit</button>
+          </form>
+
+          {status && <p style={{ marginTop: "10px" }}>{status}</p>}
         </div>
+
         <div className={styles["main-contact-container-right-part"]}>
           <h3>Follow Us</h3>
           <p>

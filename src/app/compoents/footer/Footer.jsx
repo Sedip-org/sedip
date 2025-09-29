@@ -18,29 +18,54 @@ export default function Footer() {
             <h2>Sustainable Development Science and Innovation</h2>
           </div>
           <div className={styles["footer-social-network"]}>
-            <FaFacebookF
-              size={24}
-              color="#110D57"
-              className={styles["footer-icon"]}
-            />
-            <FaTwitter
-              size={24}
-              color="#110D57"
-              className={styles["footer-icon"]}
-            />
-            <FaLinkedinIn
-              size={24}
-              color="#110D57"
-              className={styles["footer-icon"]}
-            />
-            <CiInstagram
-              size={24}
-              color="#110D57"
-              className={styles["footer-icon"]}
-            />
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF
+                size={24}
+                color="#110D57"
+                className={styles["footer-icon"]}
+              />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter
+                size={24}
+                color="#110D57"
+                className={styles["footer-icon"]}
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/sedip-platform/?viewAsMember=true"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn
+                size={24}
+                color="#110D57"
+                className={styles["footer-icon"]}
+              />
+            </a>
+
+            <a
+              href="https://www.instagram.com/sediporg/followers/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CiInstagram
+                size={24}
+                color="#110D57"
+                className={styles["footer-icon"]}
+              />
+            </a>
           </div>
         </div>
-
         <div className={styles["footer-right-part"]}>
           <div className={styles["footer-links-group"]}>
             <h3>Quick Links</h3>
@@ -57,7 +82,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services" className={styles["footer-link"]}>
-                  Services
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className={styles["footer-link"]}>
+                  News
                 </Link>
               </li>
               <li>
@@ -81,6 +111,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className={styles["footer-link"]}>
+                  Contact
+                </Link>
+              </li>
+              <li>
                 <Link href="/account" className={styles["footer-link"]}>
                   User Account
                 </Link>
@@ -88,30 +123,6 @@ export default function Footer() {
               <li>
                 <Link href="/reset-password" className={styles["footer-link"]}>
                   Reset Password
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className={styles["footer-links-group"]}>
-            <h3>Legal & Compliance</h3>
-            <ul className={styles["footer-links-list"]}>
-              <li>
-                <Link href="/privacy-policy" className={styles["footer-link"]}>
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms-and-conditions"
-                  className={styles["footer-link"]}
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-of-use" className={styles["footer-link"]}>
-                  Terms of Use
                 </Link>
               </li>
             </ul>

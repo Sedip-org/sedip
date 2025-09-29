@@ -23,7 +23,7 @@ export default function AboutUs() {
               }
             >
               <img
-                src="/images/who-we-are.jpg"
+                src="/images/fifth.jpg"
                 className={
                   styles["about-us-container-intro-right-part-first-img"]
                 }
@@ -35,13 +35,13 @@ export default function AboutUs() {
               }
             >
               <img
-                src="/images/who-we-are-first.jpg"
+                src="/images/fourth.jpg"
                 className={
                   styles["about-us-container-intro-right-part-second-imgs"]
                 }
               />
               <img
-                src="/images/who-we-are-second.jpg"
+                src="/images/sixth.jpg"
                 className={
                   styles["about-us-container-intro-right-part-second-imgs"]
                 }

@@ -45,7 +45,7 @@ export default function GoalsSlider() {
 
         <SwiperSlide>
           <div className={styles["card"]}>
-            <h3 className={styles["card-title"]}>Green Energy</h3>
+            <h3 className={styles["card-title"]}>Green Economy</h3>
             <div className={styles["card-content"]}>
               <p>
                 A sustainable economy is not only about today but also about

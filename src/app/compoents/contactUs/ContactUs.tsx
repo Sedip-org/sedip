@@ -1,40 +1,44 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState, FormEvent } from "react";
 import styles from "./contact.module.css";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [status, setStatus] = useState("");
+  const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<string>("");
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!form.current) return;
 
-  const handleSubmit = async () => {
-    setStatus("Sending..."); // Göndərilərkən mesaj
-    try {
-      const res = await fetch("/api/contactUS", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message }),
-      });
+    setStatus("Sending...");
 
-      const data = await res.json();
-
-      if (res.ok && data.success) {
-        setStatus("Message sent successfully!"); // Müvəffəqiyyət mesajı
-        setEmail(""); // Inputu boşalt
-        setMessage("");
-      } else {
-        setStatus("Error sending message."); // Səhv mesajı
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus("Error sending message."); // Səhv mesajı
-    }
+    emailjs
+      .sendForm(
+        "service_kz2x8rj",
+        "template_i4aalvm",
+        form.current,
+        "8-FibKJW0XagsC3FV"
+      )
+      .then(
+        () => {
+          setStatus("✅ Message sent successfully!");
+          form.current?.reset();
+        },
+        (error: any) => {
+          console.error("FAILED...", error?.text || error);
+          setStatus("❌ Failed to send. Please try again.");
+        }
+      );
   };
 
   return (
     <div className={styles["contact-container-intro"]}>
       <div className={styles["contact-container"]}>
-        <div className={styles["contact-container-left-part"]}>
+        <form
+          className={styles["contact-container-left-part"]}
+          ref={form}
+          onSubmit={handleSubmit}
+        >
           <div className={styles["contact-container-part"]}>
             <label
               htmlFor="email"
@@ -44,9 +48,10 @@ export default function Contact() {
             </label>
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              placeholder="Enter your email"
               className={styles["contact-part-input"]}
+              required
             />
           </div>
           <div className={styles["contact-container-part"]}>
@@ -57,17 +62,18 @@ export default function Contact() {
               Your Message
             </label>
             <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              name="message"
+              placeholder="Your message"
               className={styles["contact-part-textarea"]}
+              required
             ></textarea>
           </div>
           <span>We respect your privacy</span>
-          <button className={styles["contact-btn"]} onClick={handleSubmit}>
+          <button className={styles["contact-btn"]} type="submit">
             Send Message
           </button>
           <p style={{ marginTop: "10px", fontWeight: "bold" }}>{status}</p>
-        </div>
+        </form>
 
         <div className={styles["contact-container-right-part"]}>
           <h2>
