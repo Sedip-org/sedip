@@ -25,7 +25,7 @@ export default function BreakingNews() {
       .from("events")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(3);
+      .limit(4);
 
     if (error) console.error("Error fetching news:", error);
     else setNews(data || []);
