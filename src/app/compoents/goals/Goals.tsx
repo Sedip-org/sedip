@@ -16,22 +16,21 @@ export default function GoalsSlider() {
     >
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={20}
+        spaceBetween={10}
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-          1376: { slidesPerView: 4 },
+          0: { slidesPerView: 1 }, // 0px-dən 639px-ə qədər → 1 kart
+          700: { slidesPerView: 2 }, // 640px-dən 1023px-ə qədər → 2 kart
+          1200: { slidesPerView: 3 }, // 1024px-dən 1375px-ə qədər → 3 kart
+          1617: { slidesPerView: 4 }, // 1376px-dən 1657px-ə qədər → 4 kart
         }}
       >
         <SwiperSlide>
           <div className={styles["card"]}>
-            <h3 className={styles["card-title"]}>
-              Sustainable Economy
-            </h3>
+            <h3 className={styles["card-title"]}>Sustainable Economy</h3>
             <div className={styles["card-content"]}>
               <p>
                 A platform where experts meet to discuss climate change, green

@@ -29,9 +29,9 @@
 }
 .footer-logo-container h2 {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #110d57;
-  line-height: 1.5rem;
+  line-height: 1.8rem;
   letter-spacing: 0;
   max-width: 9.375rem;
 }
@@ -71,8 +71,8 @@
 .footer-link {
   font-weight: 500;
   font-style: Medium;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   letter-spacing: 0;
   vertical-align: middle;
 }
@@ -96,8 +96,8 @@
   }
   .footer-logo-container h2 {
     font-weight: 600;
-    font-size: 0.75rem;
-    line-height: 1;
+    font-size: 1rem;
+    line-height: 1.2;
   }
   .footer-img-logo {
     width: 2rem;
@@ -112,8 +112,8 @@
     line-height: 1.2rem;
   }
   .footer-link {
-    font-size: 0.625rem;
-    line-height: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.7rem;
     padding: 0.125rem;
   }
 }

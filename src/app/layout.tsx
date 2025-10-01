@@ -27,7 +27,9 @@ export default function RootLayout({
   const hideNavbarFooter =
     pathname === "/login" ||
     pathname === "/signin" ||
-    pathname === "/resetPassword";
+    pathname === "/resetPassword" ||
+    pathname === "/admin" ||
+    pathname === "/adminLogin";
 
   return (
     <html lang="en">

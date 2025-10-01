@@ -32,15 +32,15 @@ export default function BreakingNews() {
   }
 
   // İlk 2 cümləni götür
-function getFirstTwoSentences(text: string) {
-  if (!text) return "";
-  
-  // Cümlələri nöqtəyə görə ayırır, yeni sətir və boşluqları silir
-  const sentences = text.split(/(?<=[.!?])\s+/); 
-  
-  // İlk 2 cümləni götürür, əgər varsa "…" əlavə edir
-  return sentences.slice(0, 4).join(" ") + (sentences.length > 2 ? "…" : "");
-}
+  function getFirstTwoSentences(text: string) {
+    if (!text) return "";
+
+    // Cümlələri nöqtəyə görə ayırır, yeni sətir və boşluqları silir
+    const sentences = text.split(/(?<=[.!?])\s+/);
+
+    // İlk 2 cümləni götürür, əgər varsa "…" əlavə edir
+    return sentences.slice(0, 4).join(" ") + (sentences.length > 2 ? "…" : "");
+  }
 
   return (
     <div className={styles["breaking-news-general-container"]}>
@@ -49,27 +49,29 @@ function getFirstTwoSentences(text: string) {
       </h3>
 
       <div className={styles["breaking-news-container"]}>
-        {/* Sol hissə */}
-        <div className={styles["breaking-news-left-part"]}>
-          <img
-            className={styles["breaking-news-left-img"]}
-            src="/images/breaking-news.jpg"
-            alt="materials"
-          />
-          <p className={styles["breaking-news-left-descp-main"]}>
-            Materials, Baking Soda
-          </p>
-          <p className={styles["breaking-news-left-descp"]}>
-            Czech firefighters tackle large toxic train fire. A train transporting benzene, a carcinogen, derailed and caught fire on Friday, prompting a large emergency response.
-          </p>
-          <button className={styles["breaking-news-subscribe-btn"]}>
-            Subscribe
-          </button>
-        </div>
+        {/* Sol hissə - ən son xəbər */}
+        {news[0] && (
+          <div className={styles["breaking-news-left-part"]}>
+            <img
+              className={styles["breaking-news-left-img"]}
+              src={news[0].image}
+              alt={news[0].name}
+            />
+            <p className={styles["breaking-news-left-descp-main"]}>
+              {news[0].name}
+            </p>
+            <p className={styles["breaking-news-left-descp"]}>
+              {getFirstTwoSentences(news[0].content)}
+            </p>
+            <button className={styles["breaking-news-subscribe-btn"]}>
+              Subscribe
+            </button>
+          </div>
+        )}
 
-        {/* Sağ hissə */}
+        {/* Sağ hissə - qalan xəbərlər */}
         <div className={styles["breaking-news-right-part"]}>
-          {news.map((singleNews) => (
+          {news.slice(1).map((singleNews) => (
             <Link
               key={singleNews.id}
               className={styles["breaking-news-item"]}
@@ -78,7 +80,7 @@ function getFirstTwoSentences(text: string) {
               <div className={styles["breaking-news-left"]}>
                 <img
                   src={singleNews.image}
-                  alt="news"
+                  alt={singleNews.name}
                   className={styles["breaking-news-img"]}
                 />
               </div>

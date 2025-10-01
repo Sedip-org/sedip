@@ -32,13 +32,6 @@ export default function Partners() {
             className={styles["partners-img"]}
           />
         </div>
-        <div className={styles["partners-image"]}>
-          <img
-            src="/images/partner.png"
-            alt="partner"
-            className={styles["partners-img"]}
-          />
-        </div>
       </div>
     </div>
   );

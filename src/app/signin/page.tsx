@@ -3,6 +3,7 @@ import styles from "./signin.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase"; // burda lib/supabase faylından gəlir
+import { useRouter } from "next/navigation";
 
 export default function LogIn() {
   const [agreed, setAgreed] = useState(false);
@@ -10,7 +11,7 @@ export default function LogIn() {
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -18,22 +19,20 @@ export default function LogIn() {
       setErrorMessage("You must agree to the terms.");
       return;
     }
-
-    // Supabase Sign Up
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: fullName, // istifadəçi profilində saxlanacaq əlavə məlumat
-        },
+    const { data, error } = await supabase.from("sedip-users").insert([
+      {
+        email,
+        full_name: fullName,
+        password,
+        created_at: new Date().toISOString(),
       },
-    });
+    ]);
 
     if (error) {
       setErrorMessage(error.message);
     } else {
-      alert("Check your email to confirm registration!");
+      alert("User added successfully!");
+      router.push("/login");
     }
   };
 

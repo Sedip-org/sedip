@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   padding: 1.875rem;
   background: var(--Primary-Color, #110d57);
 }
@@ -29,8 +29,7 @@
   background-color: rgb(203, 202, 202);
 }
 .partners-img {
-  max-height: 10rem;
-  max-width: 8.125rem;
+  max-width: 8.5rem;
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -49,33 +48,35 @@
   .partners-image {
     border-radius: 1.25rem;
     padding: 0.625rem;
-    width: 3.75rem;
     background-color: rgb(203, 202, 202);
-    max-height: 5rem;
-    height: auto;
-    max-width: 6.25rem;
-    width: 100%;
+    max-height: 7rem;
     border-radius: 0.625rem;
+  }
+  .partners-img {
+    height: auto;
+    max-width: 8.5rem;
+    width: 100%;
   }
 }
 @media (max-width: 48em) {
   .partners-container {
     padding: 0.625rem;
-    gap: 1.25rem;
+    gap: 1rem;
   }
   .partners-container-title {
     font-size: 1.5rem;
     line-height: 1.875rem;
   }
   .partners-images {
-    gap: 1.25rem;
+    gap: 2rem;
   }
   .partners-image {
     max-height: 5rem;
-    width: 2.5rem;
     border-radius: 0.625rem;
   }
   .partners-img {
-    object-fit: cover;
+    max-width: 4rem;
+    width: 100%;
+    height: auto;
   }
 }

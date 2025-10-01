@@ -12,9 +12,11 @@
   border-radius: 1.25rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  max-width: 21.875rem;
-  width: 100%;
-  min-height: 29.25rem;
+  /* max-width: 21.875rem;
+  width: 100%; */
+  width: 20rem;
+  height: 25rem;
+  /* min-height: 29.25rem; */
   background: linear-gradient(0deg, #00023c, #00023c),
     linear-gradient(
       256.47deg,
@@ -27,7 +29,6 @@
       rgba(255, 131, 122, 0) 28%
     );
   transition: transform 0.3s ease;
-  flex: 1 1 auto;
 }
 .card:hover {
   transform: translateY(-5px);
@@ -35,8 +36,9 @@
 
 .card-title {
   width: 100%;
-  min-height: 100px;
-  height: auto;
+  /* min-height: 100px;
+  height: auto; */
+  height: 100px;
   padding: 1.25rem;
   background-image: url("/images/card-background.webp");
   background-size: cover;
@@ -56,7 +58,7 @@
 .card-content p {
   font-size: 1.25rem;
   line-height: 2.1875rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 400; /* Regular weight */
   line-height: 1.5; /* 150% */
   color: #ffffff; /* White text */
@@ -65,19 +67,42 @@
   letter-spacing: 0.01em; /* Slight letter spacing */
 }
 @media (min-width: 48em) and (max-width: 64em) {
-  .goals-container {
-    flex-wrap: wrap;
-  }
   .card {
-    width: 100%;
+    /* width: 100%;
     max-width: 18.75rem;
-    height: auto;
+    height: auto; */
+    width: 19.2rem;
+    height: 24rem;
     margin: 0 auto;
   }
   .card-title {
-    font-size: 1.25rem;
+    font-size: 1.7rem;
     padding: 0.9375rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
+    height: 80px;
+  }
+  .card-content {
+    padding: 0.625rem;
+  }
+  .card-content p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}
+@media (max-width: 48em) {
+  .card {
+    /* width: 100%;
+    max-width: 15rem;
+    min-height: 21rem; */
+    width: 17rem;
+    height: 24rem;
+    margin: 0 auto;
+  }
+  .card-title {
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    line-height: 2rem;
+    height: 70px;
   }
   .card-content {
     padding: 0.625rem;
@@ -85,28 +110,5 @@
   .card-content p {
     font-size: 1.2rem;
     line-height: 2rem;
-  }
-}
-@media (max-width: 48em) {
-  .goals-container {
-    flex-wrap: wrap;
-  }
-  .card {
-    width: 100%;
-    max-width: 15rem;
-    min-height: 21rem;
-    margin: 0 auto;
-  }
-  .card-title {
-    font-size: 0.9375rem;
-    padding: 0.9375rem;
-    line-height: 1.5rem;
-  }
-  .card-content {
-    padding: 0.625rem;
-  }
-  .card-content p {
-    font-size: 0.7rem;
-    line-height: 1.25rem;
   }
 }

@@ -1,0 +1,226 @@
+.login-admin-general-container {
+  background-color: #110d57;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.login-admin-general-container-logo-design {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.login-admin-general-container-logo-design img {
+  width: 140px;
+  height: 140px;
+}
+
+.login-admin-general-container-logo-design h2 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.login-admin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  max-width: 500px;
+  width: 100%;
+  min-height: auto;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 40px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-admin-container h1 {
+  color: #021131;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.login-admin-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.login-admin-container p {
+  color: #1d1d1d;
+  text-align: center;
+  font-size: 15px;
+}
+
+.login-admin-container-input-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.login-admin-container-input-detail {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.login-admin-container-input-detail:focus {
+  outline: none;
+  border-color: #110d57;
+}
+
+.login-admin-container button {
+  padding: 15px;
+  background: #110d57;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.login-admin-container button:hover {
+  background-color: #0d0a45;
+}
+
+.login-admin-container-divider {
+  text-align: center;
+  color: #666;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.login-admin-container-check-acc {
+  font-weight: bold;
+  text-align: center;
+  color: #021131;
+}
+
+.login-admin-container-register-span {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+}
+
+.login-admin-container-password-span {
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-admin-general-container {
+    padding: 15px;
+    align-items: stretch;
+  }
+
+  .login-admin-general-container-logo-design {
+    margin-bottom: 20px;
+  }
+
+  .login-admin-general-container-logo-design img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .login-admin-general-container-logo-design h2 {
+    font-size: 16px;
+  }
+
+  .login-admin-container {
+    max-width: 100%;
+    padding: 30px 20px;
+    gap: 8px;
+  }
+
+  .login-admin-container h1 {
+    font-size: 24px;
+  }
+  .login-admin-container h2 {
+    font-size: 22px;
+  }
+
+  .login-admin-container p {
+    font-size: 14px;
+  }
+
+  .login-admin-container-input-detail {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .login-admin-container button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .login-admin-container-register-span,
+  .login-admin-container-password-span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-admin-general-container {
+    padding: 10px;
+  }
+
+  .login-admin-container {
+    padding: 20px 15px;
+    border-radius: 15px;
+  }
+
+  .login-admin-container h1 {
+    font-size: 20px;
+  }
+  .login-admin-container h2 {
+    font-size: 18px;
+  }
+  .login-admin-container-input-detail {
+    padding: 10px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .login-admin-general-container {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .login-admin-general-container-logo-design {
+    margin-bottom: 15px;
+  }
+
+  .login-admin-general-container-logo-design img {
+    width: 60px;
+    height: 60px;
+  }
+}

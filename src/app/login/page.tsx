@@ -2,28 +2,42 @@
 import styles from "./login.module.css";
 import Link from "next/link";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase"; // lib/supabase.ts faylından
+import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
+
 export default function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (error) {
-      setErrorMessage(error.message);
-    } else {
-      alert("Logged in successfully!");
-      router.push("/");
-    }
-  };
+  // `sedip-users` cədvəlindən email-ə görə user tap
+  const { data, error } = await supabase
+    .from("sedip-users")
+    .select("*")
+    .eq("email", email)
+    .single();
+
+  if (error || !data) {
+    setErrorMessage("User not found!");
+    return;
+  }
+
+  // Hazırda sadə password müqayisəsi
+  if (data.password !== password) {
+    setErrorMessage("Invalid password!");
+    return;
+  }
+
+  // ✅ full_name-i localStorage-a yazırıq
+  localStorage.setItem("full_name", data.full_name);
+
+  // Login uğurlu olduqda home səhifəsinə yönləndir
+  router.push("/");
+};
 
   return (
     <div className={styles["login-general-container"]}>
