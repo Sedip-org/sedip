@@ -4,6 +4,13 @@ import { supabase } from "@/lib/supabase";
 import { useParams } from "next/navigation";
 import styles from "../news-detail.module.css";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+// Style-lar
+import "swiper/css";
+import "swiper/css/navigation";
+// Modullar
+import { Navigation } from "swiper/modules";
+
 interface News {
   id: string;
   name: string;
@@ -11,17 +18,30 @@ interface News {
   content: string;
   created_at: string;
   image: string;
+  gallery?: string[] | string; // gallery üçün
 }
-
 export default function NewsDetail() {
   const [newsItem, setNewsItem] = useState<News | null>(null);
+  const [galleryArray, setGalleryArray] = useState<string[]>([]);
   const params = useParams();
   const { id } = params;
 
   useEffect(() => {
     if (id) fetchNews();
   }, [id]);
-
+  function linkify(text: string) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.split(urlRegex).map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a key={index} href={part} target="_blank" rel="noopener noreferrer">
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  }
   async function fetchNews() {
     const { data, error } = await supabase
       .from("news")
@@ -33,6 +53,15 @@ export default function NewsDetail() {
       console.error("Error fetching news:", error);
     } else {
       setNewsItem(data);
+
+      // Gallery array-a çevirmək
+      if (data.gallery) {
+        const galleryArr =
+          typeof data.gallery === "string"
+            ? JSON.parse(data.gallery)
+            : data.gallery;
+        setGalleryArray(galleryArr);
+      }
     }
   }
 
@@ -40,29 +69,50 @@ export default function NewsDetail() {
 
   return (
     <div className={styles["general-news-container"]}>
+      {/* Başlıq */}
       <h1 className={styles["general-news-container-name"]}>{newsItem.name}</h1>
-      <div className={styles["general-news-presentation"]}>
-        <h4>{newsItem.name}</h4>
-        <div className={styles["general-news-left-part"]}>
-          <img
-            src={newsItem.image}
-            alt={newsItem.name}
-            className={styles["general-news-left-part-img"]}
-          />
-        </div>
-        <div className={styles["general-news-right-part"]}>
-          <p>{newsItem.content}</p>
-          {/* <div className={styles["general-news-details"]}>
-            <p className={styles["general-news-hour"]}>{newsItem.created_at}</p>
-            <p className={styles["general-news-loc"]}>{newsItem.author}</p>
-          </div> */}
-        </div>
+
+      {/* Əsas şəkil */}
+      <div className={styles["general-news-main-image"]}>
+        <img
+          src={newsItem.image}
+          alt={newsItem.name}
+          className={styles["general-news-main-img"]}
+        />
       </div>
-      {/* <div>
-        <p className={styles["general-news-additionals"]}>
-          Stay tuned for more updates on this breaking news.
+
+      {/* Mətn */}
+      <div className={styles["general-news-content"]}>
+        <p>{linkify(newsItem.content)}</p>
+        <p className={styles["general-news-author"]}>
+          Author: {newsItem.author}
         </p>
-      </div> */}
+        <p className={styles["general-news-date"]}>
+          Date: {newsItem.created_at}
+        </p>
+      </div>
+
+      {/* Gallery slider */}
+      {galleryArray.length > 0 && (
+        <div className={styles["general-news-gallery"]}>
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            spaceBetween={10}
+            slidesPerView={3}
+          >
+            {galleryArray.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={img}
+                  alt={`gallery ${idx}`}
+                  className={styles["gallery-img"]}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      )}
     </div>
   );
 }

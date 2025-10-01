@@ -5,17 +5,21 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { usePathname } from "next/navigation";
 
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const pathname = usePathname();
 
+  // Səhifə açıldıqdan sonra navbar bağlansın
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const storedName = localStorage.getItem("full_name");
     if (storedName) setName(storedName);
   }, []);
+
   return (
     <nav
       className={`${styles["navbar-container"]} ${
@@ -49,7 +53,12 @@ export default function Navbar() {
           }`}
         >
           <li>
-            <Link href="/">Home</Link>
+            <Link
+              href="/"
+              onClick={() => window.location.reload()} // Home-da səhifə yenilənsin
+            >
+              Home
+            </Link>
           </li>
           <li>
             <Link href="/about">About us</Link>

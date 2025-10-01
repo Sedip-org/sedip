@@ -11,6 +11,7 @@ interface Event {
   name: string;
   image: string;
   content: string;
+  gallery?: string[] | string; // əlavə olundu
 }
 
 export default function Events() {
@@ -24,16 +25,24 @@ export default function Events() {
     name: "",
     image: "",
     content: "",
+    gallery: [],
   });
   const [editId, setEditId] = useState<string | null>(null);
 
   async function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    const payload = {
+      ...form,
+      gallery: Array.isArray(form.gallery)
+        ? JSON.stringify(form.gallery)
+        : form.gallery,
+    };
+
     if (editId) {
       const { error } = await supabase
         .from("events")
-        .update([form])
+        .update([payload])
         .eq("id", editId);
 
       if (error) {
@@ -44,7 +53,7 @@ export default function Events() {
         resetForm();
       }
     } else {
-      const { error } = await supabase.from("events").insert([form]);
+      const { error } = await supabase.from("events").insert([payload]);
 
       if (error) {
         toast.error(`Failed to create ${error.message}`);
@@ -62,6 +71,7 @@ export default function Events() {
       name: "",
       image: "",
       content: "",
+      gallery: [],
     });
     setEditId(null);
   }
@@ -77,7 +87,12 @@ export default function Events() {
   }
 
   function handleEventEdit(event: Event) {
-    setForm(event);
+    const galleryArray = event.gallery
+      ? typeof event.gallery === "string"
+        ? JSON.parse(event.gallery)
+        : event.gallery
+      : [];
+    setForm({ ...event, gallery: galleryArray });
     if (event.id) {
       setEditId(event.id);
     }
@@ -125,6 +140,30 @@ export default function Events() {
     }
   }
 
+  // GALLERY UPLOAD
+  async function handleGalleryUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    const files = event.target.files;
+    if (!files) return;
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const { data, error } = await supabase.storage
+        .from("events-images")
+        .upload(`events/gallery/${Date.now()}-${file.name}`, file);
+
+      if (error) toast.error(`Failed to upload ${file.name}`);
+      else {
+        const url = supabase.storage.from("events-images").getPublicUrl(data.path)
+          .data.publicUrl;
+        setForm(prev => ({
+          ...prev,
+          gallery: [...(Array.isArray(prev.gallery) ? prev.gallery : []), url],
+        }));
+        toast.success(`${file.name} uploaded`);
+      }
+    }
+  }
+
   return (
     <>
       <div className="events-container my-5">
@@ -137,6 +176,7 @@ export default function Events() {
             <div className="card mb-4 events-card">
               <div className="card-body">
                 <form onSubmit={handleFormSubmit}>
+                  {/* Main Image */}
                   <div className="mb-3">
                     <label className="form-label">Image</label>
                     <input
@@ -152,6 +192,31 @@ export default function Events() {
                       />
                     )}
                   </div>
+
+                  {/* Gallery Upload */}
+                  <div className="mb-3">
+                    <label className="form-label">Gallery Images (Multiple)</label>
+                    <input
+                      type="file"
+                      className="form-control"
+                      multiple
+                      onChange={handleGalleryUpload}
+                    />
+
+                    <div className="d-flex flex-wrap gap-2 mt-2">
+                      {Array.isArray(form.gallery) &&
+                        form.gallery.map((img, idx) => (
+                          <img
+                            key={idx}
+                            src={img}
+                            alt={`gallery ${idx}`}
+                            style={{ width: "80px" }}
+                          />
+                        ))}
+                    </div>
+                  </div>
+
+                  {/* Name */}
                   <div className="mb-3">
                     <label className="form-label">Name</label>
                     <input
@@ -163,6 +228,8 @@ export default function Events() {
                       }
                     />
                   </div>
+
+                  {/* Date */}
                   <div className="mb-3">
                     <label className="form-label">Date</label>
                     <input
@@ -174,6 +241,8 @@ export default function Events() {
                       }
                     />
                   </div>
+
+                  {/* Content */}
                   <div className="mb-3">
                     <label className="form-label">Content</label>
                     <textarea
@@ -202,6 +271,7 @@ export default function Events() {
                 <thead className="table-light">
                   <tr>
                     <th>Image</th>
+                    <th>Gallery</th>
                     <th>Name</th>
                     <th>Date</th>
                     <th>Content</th>
@@ -209,38 +279,55 @@ export default function Events() {
                   </tr>
                 </thead>
                 <tbody>
-                  {events.map((singleEvent) => (
-                    <tr key={singleEvent.id}>
-                      <td>
-                        {singleEvent.image && (
-                          <img
-                            src={singleEvent.image}
-                            alt={singleEvent.name}
-                            style={{ width: "80px" }}
-                          />
-                        )}
-                      </td>
-                      <td>{singleEvent.name}</td>
-                      <td>{singleEvent.created_at}</td>
-                      <td>{singleEvent.content}</td>
-                      <td className="text-nowrap">
-                        <button
-                          className="btn btn-warning btn-sm me-2"
-                          onClick={() => handleEventEdit(singleEvent)}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          className="btn btn-danger btn-sm"
-                          onClick={() =>
-                            singleEvent.id && handleEventDelete(singleEvent.id)
-                          }
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                  {events.map((singleEvent) => {
+                    const galleryArray = singleEvent.gallery
+                      ? typeof singleEvent.gallery === "string"
+                        ? JSON.parse(singleEvent.gallery)
+                        : singleEvent.gallery
+                      : [];
+                    return (
+                      <tr key={singleEvent.id}>
+                        <td>
+                          {singleEvent.image && (
+                            <img
+                              src={singleEvent.image}
+                              alt={singleEvent.name}
+                              style={{ width: "80px" }}
+                            />
+                          )}
+                        </td>
+                        <td className="d-flex flex-wrap gap-1">
+                          {galleryArray.map((img: string, idx: number) => (
+                            <img
+                              key={idx}
+                              src={img}
+                              alt={`gallery ${idx}`}
+                              style={{ width: "50px" }}
+                            />
+                          ))}
+                        </td>
+                        <td>{singleEvent.name}</td>
+                        <td>{singleEvent.created_at}</td>
+                        <td>{singleEvent.content}</td>
+                        <td className="text-nowrap">
+                          <button
+                            className="btn btn-warning btn-sm me-2"
+                            onClick={() => handleEventEdit(singleEvent)}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="btn btn-danger btn-sm"
+                            onClick={() =>
+                              singleEvent.id && handleEventDelete(singleEvent.id)
+                            }
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
