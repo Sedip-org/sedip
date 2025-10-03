@@ -40,6 +40,7 @@
   outline: none;
   font-size: 1rem;
   max-width: 37.5rem;
+  cursor: pointer;
 }
 .presentation-image {
   display: flex;

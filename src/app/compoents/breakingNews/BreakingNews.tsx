@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // <-- əlavə et
 import { supabase } from "@/lib/supabase";
 import styles from "./breakingnews.module.css";
 
@@ -14,6 +15,7 @@ interface Events {
 }
 
 export default function BreakingNews() {
+  const router = useRouter(); // <-- router
   const [news, setNews] = useState<Events[]>([]);
 
   useEffect(() => {
@@ -31,22 +33,15 @@ export default function BreakingNews() {
     else setNews(data || []);
   }
 
-  // İlk 2 cümləni götür
   function getFirstTwoSentences(text: string) {
     if (!text) return "";
-
-    // Cümlələri nöqtəyə görə ayırır, yeni sətir və boşluqları silir
     const sentences = text.split(/(?<=[.!?])\s+/);
-
-    // İlk 2 cümləni götürür, əgər varsa "…" əlavə edir
     return sentences.slice(0, 4).join(" ") + (sentences.length > 2 ? "…" : "");
   }
 
   return (
     <div className={styles["breaking-news-general-container"]}>
-      <h3 className={styles["breaking-news-general-container-name"]}>
-        Breaking News
-      </h3>
+      <h3 className={styles["breaking-news-general-container-name"]}>Events</h3>
 
       <div className={styles["breaking-news-container"]}>
         {/* Sol hissə - ən son xəbər */}
@@ -63,8 +58,11 @@ export default function BreakingNews() {
             <p className={styles["breaking-news-left-descp"]}>
               {getFirstTwoSentences(news[0].content)}
             </p>
-            <button className={styles["breaking-news-subscribe-btn"]}>
-              Subscribe
+            <button
+              className={styles["breaking-news-subscribe-btn"]}
+              onClick={() => router.push(`/eventsDetail/${news[0].id}`)} // <-- kliklə yönləndir
+            >
+              Read More
             </button>
           </div>
         )}

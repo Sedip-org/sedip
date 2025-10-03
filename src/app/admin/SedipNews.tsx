@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./sedip-news.module.css";
 
 interface News {
   id?: string;
@@ -129,7 +130,9 @@ export default function SedipNews() {
     }
   }
 
-  async function handleGalleryUpload(event: React.ChangeEvent<HTMLInputElement>) {
+  async function handleGalleryUpload(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
     const files = event.target.files;
     if (!files) return;
 
@@ -143,7 +146,7 @@ export default function SedipNews() {
       else {
         const url = supabase.storage.from("news-images").getPublicUrl(data.path)
           .data.publicUrl;
-        setForm(prev => ({
+        setForm((prev) => ({
           ...prev,
           gallery: [...(Array.isArray(prev.gallery) ? prev.gallery : []), url],
         }));
@@ -154,6 +157,122 @@ export default function SedipNews() {
 
   return (
     <>
+      <style jsx>{`
+        /* Base styles for all screen sizes */
+        .responsive-table tbody td {
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
+        
+        /* Tablet screens (768px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .responsive-table th,
+          .responsive-table td {
+            font-size: 0.875rem;
+            padding: 0.5rem;
+          }
+          
+          .responsive-table td[data-label="Content"] {
+            max-width: 200px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+          }
+          
+          .action-buttons-mobile button {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+          }
+        }
+        
+        /* Mobile screens (up to 768px) */
+        @media (max-width: 768px) {
+          .responsive-table {
+            border: 0;
+          }
+          
+          .responsive-table thead {
+            display: none;
+          }
+          
+          .responsive-table tbody tr {
+            display: block;
+            margin-bottom: 1.5rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+          
+          .responsive-table tbody td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border: none;
+            border-bottom: 1px solid #dee2e6;
+            text-align: right;
+            word-break: break-word;
+            overflow-wrap: break-word;
+          }
+          
+          .responsive-table tbody td:last-child {
+            border-bottom: 0;
+          }
+          
+          .responsive-table tbody td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            text-align: left;
+            padding-right: 1rem;
+            flex: 0 0 40%;
+            word-break: normal;
+          }
+          
+          .responsive-table tbody td[data-label="Gallery"],
+          .responsive-table tbody td[data-label="Action"],
+          .responsive-table tbody td[data-label="Content"] {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          
+          .responsive-table tbody td[data-label="Gallery"]::before,
+          .responsive-table tbody td[data-label="Action"]::before,
+          .responsive-table tbody td[data-label="Content"]::before {
+            margin-bottom: 0.5rem;
+          }
+          
+          .responsive-table tbody td[data-label="Name"],
+          .responsive-table tbody td[data-label="Author"],
+          .responsive-table tbody td[data-label="Content"] {
+            word-break: break-word;
+            overflow-wrap: break-word;
+            text-align: left;
+          }
+          
+          .responsive-table tbody td[data-label="Content"] {
+            white-space: normal;
+            line-height: 1.5;
+          }
+          
+          .gallery-images-mobile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            width: 100%;
+          }
+          
+          .action-buttons-mobile {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+          }
+          
+          .action-buttons-mobile button {
+            flex: 1;
+          }
+        }
+      `}</style>
+
       <div className="container my-5">
         <Toaster />
         <h3 className="container my-4">News Management</h3>
@@ -183,7 +302,9 @@ export default function SedipNews() {
 
                   {/* Gallery Upload */}
                   <div className="mb-3">
-                    <label className="form-label">Gallery Images (Multiple)</label>
+                    <label className="form-label">
+                      Gallery Images (Multiple)
+                    </label>
                     <input
                       type="file"
                       className="form-control"
@@ -270,7 +391,7 @@ export default function SedipNews() {
         <div className="row">
           <div className="col-12">
             <div className="table-responsive">
-              <table className="table table-bordered">
+              <table className="table table-bordered responsive-table">
                 <thead className="table-light">
                   <tr>
                     <th>Main Image</th>
@@ -283,15 +404,16 @@ export default function SedipNews() {
                   </tr>
                 </thead>
                 <tbody>
-                  {news.map(singleNews => {
+                  {news.map((singleNews) => {
                     const galleryArray = singleNews.gallery
                       ? typeof singleNews.gallery === "string"
                         ? JSON.parse(singleNews.gallery)
                         : singleNews.gallery
                       : [];
+
                     return (
                       <tr key={singleNews.id}>
-                        <td>
+                        <td data-label="Main Image">
                           {singleNews.image && (
                             <img
                               src={singleNews.image}
@@ -300,35 +422,39 @@ export default function SedipNews() {
                             />
                           )}
                         </td>
-                        <td className="d-flex flex-wrap gap-1">
-                          {galleryArray.map((img: string, idx: number) => (
-                            <img
-                              key={idx}
-                              src={img}
-                              alt={`gallery ${idx}`}
-                              style={{ width: "50px" }}
-                            />
-                          ))}
+                        <td data-label="Gallery">
+                          <div className="gallery-images-mobile d-flex flex-wrap gap-1">
+                            {galleryArray.map((img: string, idx: number) => (
+                              <img
+                                key={idx}
+                                src={img}
+                                alt={`gallery ${idx}`}
+                                style={{ width: "50px" }}
+                              />
+                            ))}
+                          </div>
                         </td>
-                        <td>{singleNews.name}</td>
-                        <td>{singleNews.author}</td>
-                        <td>{singleNews.created_at}</td>
-                        <td>{singleNews.content}</td>
-                        <td className="text-nowrap">
-                          <button
-                            className="btn btn-warning btn-sm me-2"
-                            onClick={() => handleNewsEdit(singleNews)}
-                          >
-                            Edit
-                          </button>
-                          <button
-                            className="btn btn-danger btn-sm"
-                            onClick={() =>
-                              singleNews.id && handleNewsDelete(singleNews.id)
-                            }
-                          >
-                            Delete
-                          </button>
+                        <td data-label="Name">{singleNews.name}</td>
+                        <td data-label="Author">{singleNews.author}</td>
+                        <td data-label="Date">{singleNews.created_at}</td>
+                        <td data-label="Content">{singleNews.content}</td>
+                        <td data-label="Action">
+                          <div className="action-buttons-mobile text-nowrap">
+                            <button
+                              className="btn btn-warning btn-sm me-2"
+                              onClick={() => handleNewsEdit(singleNews)}
+                            >
+                              Edit
+                            </button>
+                            <button
+                              className="btn btn-danger btn-sm"
+                              onClick={() =>
+                                singleNews.id && handleNewsDelete(singleNews.id)
+                              }
+                            >
+                              Delete
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     );

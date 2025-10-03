@@ -1,9 +1,9 @@
 "use client";
-
 import { useRef, useState, FormEvent } from "react";
 import styles from "./contactpage.module.css";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
+import { BiLogoGmail } from "react-icons/bi";
 import emailjs from "emailjs-com";
 
 export default function ContactPage() {
@@ -17,19 +17,29 @@ export default function ContactPage() {
 
     emailjs
       .sendForm(
-        "service_wd39gd8", // EmailJS Service ID
-        "template_40t1wcs", // EmailJS Template ID
+        "service_7jubtdp", // EmailJS Service ID
+        "template_50zc4kp", // EmailJS Template ID
         form.current,
-        "8-FibKJW0XagsC3FV" // EmailJS Public Key
+        "6-GeuAgMK2TsL5PL0" // EmailJS Public Key
       )
       .then(
         () => {
           setStatus("✅ Message sent successfully!");
           e.currentTarget.reset();
+
+          // 3 saniyədən sonra status mesajını sil
+          setTimeout(() => {
+            setStatus("");
+          }, 3000);
         },
         (error: any) => {
-          console.log("FAILED...", error.text);
+          console.error("FAILED...", error);
           setStatus("❌ Failed to send. Please try again.");
+
+          // 3 saniyədən sonra error mesajını da sil
+          setTimeout(() => {
+            setStatus("");
+          }, 3000);
         }
       );
   };
@@ -57,6 +67,7 @@ export default function ContactPage() {
                 <label htmlFor="name">Name</label>
                 <input
                   type="text"
+                  id="name"
                   name="name"
                   placeholder="Enter your name"
                   className={styles["main-contact-container-detail-input"]}
@@ -67,6 +78,7 @@ export default function ContactPage() {
                 <label htmlFor="surname">Surname</label>
                 <input
                   type="text"
+                  id="surname"
                   name="surname"
                   placeholder="Enter your surname"
                   className={styles["main-contact-container-detail-input"]}
@@ -79,6 +91,7 @@ export default function ContactPage() {
               <label htmlFor="email">Email</label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 placeholder="Enter your email"
                 className={styles["main-contact-container-detail-input"]}
@@ -89,6 +102,7 @@ export default function ContactPage() {
             <div className={styles["main-contact-container-detail"]}>
               <label htmlFor="message">Your message</label>
               <textarea
+                id="message"
                 name="message"
                 placeholder="Your message"
                 className={styles["main-contact-container-detail-textarea"]}
@@ -99,9 +113,13 @@ export default function ContactPage() {
             <button type="submit">Submit</button>
           </form>
 
-          {status && <p style={{ marginTop: "10px" }}>{status}</p>}
+          {/* Status mesajı */}
+          {status && (
+            <p style={{ marginTop: "10px", transition: "opacity 0.3s ease" }}>
+              {status}
+            </p>
+          )}
         </div>
-
         <div className={styles["main-contact-container-right-part"]}>
           <h3>Follow Us</h3>
           <p>
@@ -139,6 +157,17 @@ export default function ContactPage() {
               rel="noopener noreferrer"
             >
               <CiInstagram
+                size={24}
+                color="#110D57"
+                className={styles["contact-icon"]}
+              />
+            </a>
+            <a
+              href="mailto:sediporg@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BiLogoGmail
                 size={24}
                 color="#110D57"
                 className={styles["contact-icon"]}

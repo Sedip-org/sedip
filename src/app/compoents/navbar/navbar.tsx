@@ -34,12 +34,14 @@ export default function Navbar() {
             className={styles["logo-img"]}
           />
         </Link>
-        <h4 className={styles["navbar-logo-name"]}>
-          Sustainable
-          <br /> Development
-          <br /> Science and
-          <br /> Innovation
-        </h4>
+        <Link href="/">
+          <h4 className={styles["navbar-logo-name"]}>
+            Sustainable
+            <br /> Development
+            <br /> Science and
+            <br /> Innovation
+          </h4>
+        </Link>
       </div>
 
       <div

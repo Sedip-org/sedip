@@ -1,6 +1,7 @@
 import styles from "./footer.module.css";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
+import { BiLogoGmail } from "react-icons/bi";
 import Link from "next/link";
 export default function Footer() {
   return (
@@ -47,6 +48,17 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <CiInstagram
+                size={24}
+                color="#110D57"
+                className={styles["footer-icon"]}
+              />
+            </a>
+            <a
+              href="mailto:sediporg@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BiLogoGmail
                 size={24}
                 color="#110D57"
                 className={styles["footer-icon"]}

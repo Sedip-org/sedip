@@ -1,5 +1,8 @@
+"use client";
+import { useRouter } from "next/navigation";
 import styles from "./presentation.module.css";
 export default function Presentation() {
+  const router = useRouter();
   return (
     <div className={styles["presentation-container"]}>
       <div className={styles["presentation-description"]}>
@@ -8,7 +11,12 @@ export default function Presentation() {
           Together, we create solutions that address today’s challenges and
           shape a more sustainable tomorrow.
         </p>
-        <button className={styles["presentation-btn"]}>See Us</button>
+        <button
+          className={styles["presentation-btn"]}
+          onClick={() => router.push("/about")}
+        >
+          See Us
+        </button>
       </div>
       <div className={styles["presentation-image"]}>
         <div className={styles["presentation-image-left"]}>

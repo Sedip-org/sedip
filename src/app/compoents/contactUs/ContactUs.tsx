@@ -6,6 +6,7 @@ import emailjs from "emailjs-com";
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<string>("");
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!form.current) return;
@@ -14,19 +15,30 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_kz2x8rj",
-        "template_i4aalvm",
+        "service_cnlgihr",
+        "template_24o5w1q",
         form.current,
-        "8-FibKJW0XagsC3FV"
+        "6-GeuAgMK2TsL5PL0"
       )
       .then(
         () => {
           setStatus("✅ Message sent successfully!");
+
+          // 2 saniyədən sonra status silinsin
+          setTimeout(() => {
+            setStatus("");
+          }, 2000);
+
           form.current?.reset();
         },
         (error: any) => {
           console.error("FAILED...", error?.text || error);
           setStatus("❌ Failed to send. Please try again.");
+
+          // Xətanı da bir müddət sonra gizlədə bilərsən, istəsən
+          setTimeout(() => {
+            setStatus("");
+          }, 2000);
         }
       );
   };
@@ -72,7 +84,10 @@ export default function Contact() {
           <button className={styles["contact-btn"]} type="submit">
             Send Message
           </button>
-          <p style={{ marginTop: "10px", fontWeight: "bold" }}>{status}</p>
+          {/* Status mesajı yalnız boş deyilsə göstər */}
+          {status && (
+            <p style={{ marginTop: "10px", fontWeight: "bold" }}>{status}</p>
+          )}
         </form>
 
         <div className={styles["contact-container-right-part"]}>
