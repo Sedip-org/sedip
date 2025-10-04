@@ -11,6 +11,7 @@
   letter-spacing: 0;
   vertical-align: middle;
 }
+
 .about-us-container {
   display: flex;
   flex-direction: column;
@@ -68,18 +69,6 @@
   gap: 0.3rem;
 }
 
-/* .about-us-container-presentation {
-  background: var(--Primary-Color, #110d57);
-  color: #ffffff;
-  text-align: center;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 24px;
-  letter-spacing: 0%;
-  vertical-align: middle;
-  padding: 50px;
-  position: relative;
-} */
 .about-us-container-main-part {
   display: flex;
   flex-direction: column;

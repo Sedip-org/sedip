@@ -50,10 +50,7 @@ export default function SedipNews() {
     };
 
     if (editId) {
-      const { error } = await supabase
-        .from("news")
-        .update([payload])
-        .eq("id", editId);
+      const { error } = await supabase.from("news").update([payload]).eq("id", editId);
       if (error) toast.error(`Failed to update the data ${error.message}`);
       else {
         toast.success("Updated successfully");
@@ -123,16 +120,13 @@ export default function SedipNews() {
 
     if (error) toast.error("Image upload failed");
     else {
-      const url = supabase.storage.from("news-images").getPublicUrl(data.path)
-        .data.publicUrl;
+      const url = supabase.storage.from("news-images").getPublicUrl(data.path).data.publicUrl;
       setForm({ ...form, image: url });
       toast.success("Image uploaded successfully");
     }
   }
 
-  async function handleGalleryUpload(
-    event: React.ChangeEvent<HTMLInputElement>
-  ) {
+  async function handleGalleryUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const files = event.target.files;
     if (!files) return;
 
@@ -144,8 +138,7 @@ export default function SedipNews() {
 
       if (error) toast.error(`Failed to upload ${file.name}`);
       else {
-        const url = supabase.storage.from("news-images").getPublicUrl(data.path)
-          .data.publicUrl;
+        const url = supabase.storage.from("news-images").getPublicUrl(data.path).data.publicUrl;
         setForm((prev) => ({
           ...prev,
           gallery: [...(Array.isArray(prev.gallery) ? prev.gallery : []), url],
@@ -158,51 +151,41 @@ export default function SedipNews() {
   return (
     <>
       <style jsx>{`
-        /* Base styles for all screen sizes */
         .responsive-table tbody td {
           word-break: break-word;
           overflow-wrap: break-word;
         }
-        
-        /* Tablet screens (768px - 1024px) */
         @media (max-width: 1024px) and (min-width: 769px) {
           .responsive-table th,
           .responsive-table td {
             font-size: 0.875rem;
             padding: 0.5rem;
           }
-          
           .responsive-table td[data-label="Content"] {
             max-width: 200px;
             word-break: break-word;
             overflow-wrap: break-word;
             white-space: normal;
           }
-          
           .action-buttons-mobile button {
             padding: 0.25rem 0.5rem;
             font-size: 0.875rem;
           }
         }
-        
-        /* Mobile screens (up to 768px) */
         @media (max-width: 768px) {
           .responsive-table {
             border: 0;
           }
-          
           .responsive-table thead {
             display: none;
           }
-          
           .responsive-table tbody tr {
             display: block;
             margin-bottom: 1.5rem;
             border: 1px solid #dee2e6;
             border-radius: 0.375rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           }
-          
           .responsive-table tbody td {
             display: flex;
             justify-content: space-between;
@@ -214,11 +197,9 @@ export default function SedipNews() {
             word-break: break-word;
             overflow-wrap: break-word;
           }
-          
           .responsive-table tbody td:last-child {
             border-bottom: 0;
           }
-          
           .responsive-table tbody td::before {
             content: attr(data-label);
             font-weight: 600;
@@ -227,20 +208,17 @@ export default function SedipNews() {
             flex: 0 0 40%;
             word-break: normal;
           }
-          
           .responsive-table tbody td[data-label="Gallery"],
           .responsive-table tbody td[data-label="Action"],
           .responsive-table tbody td[data-label="Content"] {
             flex-direction: column;
             align-items: stretch;
           }
-          
           .responsive-table tbody td[data-label="Gallery"]::before,
           .responsive-table tbody td[data-label="Action"]::before,
           .responsive-table tbody td[data-label="Content"]::before {
             margin-bottom: 0.5rem;
           }
-          
           .responsive-table tbody td[data-label="Name"],
           .responsive-table tbody td[data-label="Author"],
           .responsive-table tbody td[data-label="Content"] {
@@ -248,25 +226,21 @@ export default function SedipNews() {
             overflow-wrap: break-word;
             text-align: left;
           }
-          
           .responsive-table tbody td[data-label="Content"] {
             white-space: normal;
             line-height: 1.5;
           }
-          
           .gallery-images-mobile {
             display: flex;
             flex-wrap: wrap;
             gap: 0.25rem;
             width: 100%;
           }
-          
           .action-buttons-mobile {
             display: flex;
             gap: 0.5rem;
             width: 100%;
           }
-          
           .action-buttons-mobile button {
             flex: 1;
           }
@@ -277,117 +251,77 @@ export default function SedipNews() {
         <Toaster />
         <h3 className="container my-4">News Management</h3>
 
-        {/* FORM */}
         <div className="row">
           <div className="col-12">
             <div className="card mb-4">
               <div className="card-body">
                 <form onSubmit={handleFormSubmit}>
-                  {/* Main Image */}
                   <div className="mb-3">
                     <label className="form-label">Main Image</label>
-                    <input
-                      type="file"
-                      className="form-control"
-                      onChange={handleImageUpload}
-                    />
+                    <input type="file" className="form-control" onChange={handleImageUpload} />
                     {form.image && (
-                      <img
-                        src={form.image}
-                        alt="preview"
-                        style={{ width: "120px", marginTop: "10px" }}
-                      />
+                      <img src={form.image} alt="preview" style={{ width: "120px", marginTop: "10px" }} />
                     )}
                   </div>
 
-                  {/* Gallery Upload */}
                   <div className="mb-3">
-                    <label className="form-label">
-                      Gallery Images (Multiple)
-                    </label>
-                    <input
-                      type="file"
-                      className="form-control"
-                      multiple
-                      onChange={handleGalleryUpload}
-                    />
-
-                    {/* Gallery Preview */}
+                    <label className="form-label">Gallery Images (Multiple)</label>
+                    <input type="file" className="form-control" multiple onChange={handleGalleryUpload} />
                     <div className="d-flex flex-wrap gap-2 mt-2">
                       {Array.isArray(form.gallery) &&
                         form.gallery.map((img, idx) => (
-                          <img
-                            key={idx}
-                            src={img}
-                            alt={`gallery ${idx}`}
-                            style={{ width: "80px" }}
-                          />
+                          <img key={idx} src={img} alt={`gallery ${idx}`} style={{ width: "80px" }} />
                         ))}
                     </div>
                   </div>
 
-                  {/* Name */}
                   <div className="mb-3">
                     <label className="form-label">Name</label>
                     <input
                       type="text"
                       className="form-control"
                       value={form.name}
-                      onChange={(e) =>
-                        setForm({ ...form, name: e.target.value })
-                      }
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
                     />
                   </div>
 
-                  {/* Author */}
                   <div className="mb-3">
                     <label className="form-label">Author</label>
                     <input
                       type="text"
                       className="form-control"
                       value={form.author}
-                      onChange={(e) =>
-                        setForm({ ...form, author: e.target.value })
-                      }
+                      onChange={(e) => setForm({ ...form, author: e.target.value })}
                     />
                   </div>
 
-                  {/* Date */}
                   <div className="mb-3">
                     <label className="form-label">Date</label>
                     <input
                       type="date"
                       className="form-control"
                       value={form.created_at}
-                      onChange={(e) =>
-                        setForm({ ...form, created_at: e.target.value })
-                      }
+                      onChange={(e) => setForm({ ...form, created_at: e.target.value })}
                     />
                   </div>
 
-                  {/* Content */}
                   <div className="mb-3">
                     <label className="form-label">Content</label>
                     <textarea
                       className="form-control"
                       rows={4}
                       value={form.content}
-                      onChange={(e) =>
-                        setForm({ ...form, content: e.target.value })
-                      }
+                      onChange={(e) => setForm({ ...form, content: e.target.value })}
                     ></textarea>
                   </div>
 
-                  <button className="btn btn-primary w-100">
-                    {editId ? "UPDATE" : "ADD"}
-                  </button>
+                  <button className="btn btn-primary w-100">{editId ? "UPDATE" : "ADD"}</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
 
-        {/* TABLE */}
         <div className="row">
           <div className="col-12">
             <div className="table-responsive">
@@ -415,22 +349,13 @@ export default function SedipNews() {
                       <tr key={singleNews.id}>
                         <td data-label="Main Image">
                           {singleNews.image && (
-                            <img
-                              src={singleNews.image}
-                              alt={singleNews.name}
-                              style={{ width: "80px" }}
-                            />
+                            <img src={singleNews.image} alt={singleNews.name} style={{ width: "80px" }} />
                           )}
                         </td>
                         <td data-label="Gallery">
                           <div className="gallery-images-mobile d-flex flex-wrap gap-1">
                             {galleryArray.map((img: string, idx: number) => (
-                              <img
-                                key={idx}
-                                src={img}
-                                alt={`gallery ${idx}`}
-                                style={{ width: "50px" }}
-                              />
+                              <img key={idx} src={img} alt={`gallery ${idx}`} style={{ width: "50px" }} />
                             ))}
                           </div>
                         </td>
@@ -440,17 +365,12 @@ export default function SedipNews() {
                         <td data-label="Content">{singleNews.content}</td>
                         <td data-label="Action">
                           <div className="action-buttons-mobile text-nowrap">
-                            <button
-                              className="btn btn-warning btn-sm me-2"
-                              onClick={() => handleNewsEdit(singleNews)}
-                            >
+                            <button className="btn btn-warning btn-sm me-2" onClick={() => handleNewsEdit(singleNews)}>
                               Edit
                             </button>
                             <button
                               className="btn btn-danger btn-sm"
-                              onClick={() =>
-                                singleNews.id && handleNewsDelete(singleNews.id)
-                              }
+                              onClick={() => singleNews.id && handleNewsDelete(singleNews.id)}
                             >
                               Delete
                             </button>

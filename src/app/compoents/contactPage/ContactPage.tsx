@@ -27,7 +27,7 @@ export default function ContactPage() {
           setStatus("✅ Message sent successfully!");
           e.currentTarget.reset();
 
-          // 3 saniyədən sonra status mesajını sil
+  
           setTimeout(() => {
             setStatus("");
           }, 3000);

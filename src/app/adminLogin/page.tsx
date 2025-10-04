@@ -2,7 +2,7 @@
 import styles from "./adminLogin.module.css";
 import Link from "next/link";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase"; // lib/supabase.ts faylından
+import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
 export default function LogIn() {

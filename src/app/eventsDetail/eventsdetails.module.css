@@ -90,7 +90,7 @@
   object-fit: cover;
   border-radius: 8px;
 }
-/* Tablet */
+
 @media (min-width: 48rem) and (max-width: 64rem) {
   .general-events-container-name {
     padding: 1rem;
@@ -128,7 +128,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 47.9375rem) {
   .general-events-container {
     width: 100%;

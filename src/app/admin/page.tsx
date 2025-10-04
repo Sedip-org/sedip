@@ -12,7 +12,9 @@ export default function AdminPage() {
 
   useEffect(() => {
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
       if (!session) {
         router.replace("/adminLogin");
       } else {
@@ -23,7 +25,7 @@ export default function AdminPage() {
     checkSession();
   }, [router]);
 
-  if (loading || !session) return null; // yönləndirmə və ya yoxlamada heç nə göstərmir
+  if (loading || !session) return null;
 
   return (
     <div>

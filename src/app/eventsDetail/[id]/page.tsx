@@ -6,10 +6,8 @@ import { useParams } from "next/navigation";
 import styles from "../eventsdetails.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-// Style-lar
 import "swiper/css";
 import "swiper/css/navigation";
-// Modullar
 import { Navigation } from "swiper/modules";
 
 interface Event {
@@ -58,12 +56,10 @@ export default function EventsDetail() {
 
   return (
     <div className={styles["general-events-container"]}>
-      {/* Başlıq */}
       <h1 className={styles["general-events-container-name"]}>
         {eventItem.name}
       </h1>
 
-      {/* Əsas şəkil + məzmun */}
       <div className={styles["general-events-presentation"]}>
         <div className={styles["general-events-left-part"]}>
           <img

@@ -22,10 +22,10 @@ export default function GoalsSlider() {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         breakpoints={{
-          0: { slidesPerView: 1 }, // 0px-dən 639px-ə qədər → 1 kart
-          700: { slidesPerView: 2 }, // 640px-dən 1023px-ə qədər → 2 kart
-          1200: { slidesPerView: 3 }, // 1024px-dən 1375px-ə qədər → 3 kart
-          1617: { slidesPerView: 4 }, // 1376px-dən 1657px-ə qədər → 4 kart
+          0: { slidesPerView: 1 },
+          700: { slidesPerView: 2 },
+          1200: { slidesPerView: 3 },
+          1617: { slidesPerView: 4 },
         }}
       >
         <SwiperSlide>
@@ -54,6 +54,7 @@ export default function GoalsSlider() {
             </div>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className={styles["card"]}>
             <h3 className={styles["card-title"]}>Technology Innovation</h3>
@@ -66,6 +67,7 @@ export default function GoalsSlider() {
             </div>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className={styles["card"]}>
             <h3 className={styles["card-title"]}>Global Community</h3>

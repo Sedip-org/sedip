@@ -10,7 +10,6 @@ export default function Navbar() {
   const [name, setName] = useState("");
   const pathname = usePathname();
 
-  // Səhifə açıldıqdan sonra navbar bağlansın
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -55,12 +54,7 @@ export default function Navbar() {
           }`}
         >
           <li>
-            <Link
-              href="/"
-              onClick={() => window.location.reload()} // Home-da səhifə yenilənsin
-            >
-              Home
-            </Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
             <Link href="/about">About us</Link>

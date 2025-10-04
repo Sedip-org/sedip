@@ -24,7 +24,7 @@ export default function Contact() {
         () => {
           setStatus("✅ Message sent successfully!");
 
-          // 2 saniyədən sonra status silinsin
+  
           setTimeout(() => {
             setStatus("");
           }, 2000);
@@ -35,7 +35,6 @@ export default function Contact() {
           console.error("FAILED...", error?.text || error);
           setStatus("❌ Failed to send. Please try again.");
 
-          // Xətanı da bir müddət sonra gizlədə bilərsən, istəsən
           setTimeout(() => {
             setStatus("");
           }, 2000);
@@ -84,7 +83,6 @@ export default function Contact() {
           <button className={styles["contact-btn"]} type="submit">
             Send Message
           </button>
-          {/* Status mesajı yalnız boş deyilsə göstər */}
           {status && (
             <p style={{ marginTop: "10px", fontWeight: "bold" }}>{status}</p>
           )}

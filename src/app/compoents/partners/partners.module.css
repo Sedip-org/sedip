@@ -21,15 +21,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 3.75rem;
+  gap: 4rem;
 }
 .partners-image {
-  border-radius: 1.25rem;
+  border-radius: 2rem;
   padding: 0.625rem;
-  background-color: rgb(203, 202, 202);
 }
 .partners-img {
-  max-width: 8.5rem;
+  max-width: 9rem;
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -48,13 +47,12 @@
   .partners-image {
     border-radius: 1.25rem;
     padding: 0.625rem;
-    background-color: rgb(203, 202, 202);
     max-height: 7rem;
     border-radius: 0.625rem;
   }
   .partners-img {
     height: auto;
-    max-width: 8.5rem;
+    max-width: 10rem;
     width: 100%;
   }
 }

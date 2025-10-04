@@ -110,7 +110,6 @@
   .contact-container {
     flex-direction: column-reverse;
     gap: 0.625rem;
-    /* padding: 0.9375rem 1.25vw; */
   }
   .contact-container-left-part {
     width: 100%;

@@ -105,7 +105,7 @@
 
 .general-news-gallery .swiper {
   width: 100%;
-  height: 300px; /* öz ehtiyacına görə */
+  height: 300px; 
 }
 .general-news-gallery .swiper-slide {
   display: flex;
@@ -130,9 +130,9 @@
 }
 
 .whatsapp-link {
-  display: block; /* ayrı sətirdə çıxacaq */
+  display: block;
   margin-top: 8px;
-  color: #25d366; /* WhatsApp rəngi */
+  color: #25d366; 
   font-weight: bold;
   text-decoration: none;
 }
@@ -141,7 +141,7 @@
   text-decoration: underline;
 }
 
-/* Tablet (768px - 1024px) */
+
 @media (min-width: 48rem) and (max-width: 64rem) {
   .general-news-container-name {
     padding: 1rem;
@@ -188,7 +188,7 @@
   }
 }
 
-/* Small Tablet / Large Mobile (481px - 767px) */
+
 @media (min-width: 30.0625rem) and (max-width: 47.9375rem) {
   .general-news-container-name {
     padding: 0.875rem;
@@ -241,7 +241,7 @@
   }
 }
 
-/* Mobile (351px - 480px) */
+
 @media (min-width: 21.9375rem) and (max-width: 30rem) {
   .general-news-container-name {
     padding: 0.75rem;
@@ -309,7 +309,7 @@
   }
 }
 
-/* Extra Small Mobile (max 350px) */
+
 @media (max-width: 21.875rem) {
   .general-news-container-name {
     padding: 0.625rem;
@@ -368,7 +368,7 @@
   }
 }
 
-/* Ultra Small Mobile (max 320px) */
+
 @media (max-width: 20rem) {
   .general-news-container {
     padding: 0.5rem 0.375rem;

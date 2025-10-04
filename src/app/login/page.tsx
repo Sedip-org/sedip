@@ -14,7 +14,7 @@ export default function LogIn() {
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  // `sedip-users` cədvəlindən email-ə görə user tap
+ 
   const { data, error } = await supabase
     .from("sedip-users")
     .select("*")
@@ -26,16 +26,16 @@ const handleSubmit = async (e: React.FormEvent) => {
     return;
   }
 
-  // Hazırda sadə password müqayisəsi
+
   if (data.password !== password) {
     setErrorMessage("Invalid password!");
     return;
   }
 
-  // ✅ full_name-i localStorage-a yazırıq
+
   localStorage.setItem("full_name", data.full_name);
 
-  // Login uğurlu olduqda home səhifəsinə yönləndir
+
   router.push("/");
 };
 

@@ -11,7 +11,7 @@ interface Event {
   name: string;
   image: string;
   content: string;
-  gallery?: string[] | string; // əlavə olundu
+  gallery?: string[] | string;
 }
 
 export default function Events() {
@@ -120,7 +120,6 @@ export default function Events() {
     }
   }
 
-  // IMAGE UPLOAD
   async function handleImageUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -134,13 +133,11 @@ export default function Events() {
     } else {
       const url = supabase.storage.from("events-images").getPublicUrl(data.path)
         .data.publicUrl;
-
       setForm({ ...form, image: url });
       toast.success("Image uploaded successfully");
     }
   }
 
-  // GALLERY UPLOAD
   async function handleGalleryUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const files = event.target.files;
     if (!files) return;
@@ -155,7 +152,7 @@ export default function Events() {
       else {
         const url = supabase.storage.from("events-images").getPublicUrl(data.path)
           .data.publicUrl;
-        setForm(prev => ({
+        setForm((prev) => ({
           ...prev,
           gallery: [...(Array.isArray(prev.gallery) ? prev.gallery : []), url],
         }));
@@ -170,13 +167,11 @@ export default function Events() {
         <Toaster />
         <h3 className="events-container my-4">Events Management</h3>
 
-        {/* FORM */}
         <div className="row">
           <div className="col-12">
             <div className="card mb-4 events-card">
               <div className="card-body">
                 <form onSubmit={handleFormSubmit}>
-                  {/* Main Image */}
                   <div className="mb-3">
                     <label className="form-label">Image</label>
                     <input
@@ -193,7 +188,6 @@ export default function Events() {
                     )}
                   </div>
 
-                  {/* Gallery Upload */}
                   <div className="mb-3">
                     <label className="form-label">Gallery Images (Multiple)</label>
                     <input
@@ -202,7 +196,6 @@ export default function Events() {
                       multiple
                       onChange={handleGalleryUpload}
                     />
-
                     <div className="d-flex flex-wrap gap-2 mt-2">
                       {Array.isArray(form.gallery) &&
                         form.gallery.map((img, idx) => (
@@ -216,7 +209,6 @@ export default function Events() {
                     </div>
                   </div>
 
-                  {/* Name */}
                   <div className="mb-3">
                     <label className="form-label">Name</label>
                     <input
@@ -229,7 +221,6 @@ export default function Events() {
                     />
                   </div>
 
-                  {/* Date */}
                   <div className="mb-3">
                     <label className="form-label">Date</label>
                     <input
@@ -242,7 +233,6 @@ export default function Events() {
                     />
                   </div>
 
-                  {/* Content */}
                   <div className="mb-3">
                     <label className="form-label">Content</label>
                     <textarea
@@ -263,7 +253,6 @@ export default function Events() {
           </div>
         </div>
 
-        {/* TABLE */}
         <div className="row">
           <div className="col-12">
             <div className="table-responsive">

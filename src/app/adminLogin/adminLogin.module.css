@@ -138,7 +138,6 @@
   margin-top: 5px;
 }
 
-/* Responsive Design */
 @media (max-width: 1880px) {
   .login-admin-general-container {
   }
@@ -216,7 +215,6 @@
   }
 }
 
-/* Landscape orientation on mobile */
 @media (max-height: 600px) and (orientation: landscape) {
   .login-admin-general-container {
     padding-top: 20px;

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // <-- əlavə et
+import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import styles from "./breakingnews.module.css";
 
@@ -28,7 +28,6 @@ export default function BreakingNews() {
       .select("*")
       .order("created_at", { ascending: false })
       .limit(4);
-
     if (error) console.error("Error fetching news:", error);
     else setNews(data || []);
   }
@@ -36,7 +35,7 @@ export default function BreakingNews() {
   function getFirstTwoSentences(text: string) {
     if (!text) return "";
     const sentences = text.split(/(?<=[.!?])\s+/);
-    return sentences.slice(0, 4).join(" ") + (sentences.length > 2 ? "…" : "");
+    return sentences.slice(0, 2).join(" ") + (sentences.length > 2 ? "…" : "");
   }
 
   return (
@@ -44,12 +43,11 @@ export default function BreakingNews() {
       <h3 className={styles["breaking-news-general-container-name"]}>Events</h3>
 
       <div className={styles["breaking-news-container"]}>
-        {/* Sol hissə - ən son xəbər */}
-        {news[0] && (
+        {news[news.length - 1] && (
           <div className={styles["breaking-news-left-part"]}>
             <img
               className={styles["breaking-news-left-img"]}
-              src={news[0].image}
+              src={news[news.length - 1].image}
               alt={news[0].name}
             />
             <p className={styles["breaking-news-left-descp-main"]}>
@@ -60,14 +58,12 @@ export default function BreakingNews() {
             </p>
             <button
               className={styles["breaking-news-subscribe-btn"]}
-              onClick={() => router.push(`/eventsDetail/${news[0].id}`)} // <-- kliklə yönləndir
+              onClick={() => router.push(`/eventsDetail/${news[0].id}`)}
             >
               Read More
             </button>
           </div>
         )}
-
-        {/* Sağ hissə - qalan xəbərlər */}
         <div className={styles["breaking-news-right-part"]}>
           {news.slice(1).map((singleNews) => (
             <Link

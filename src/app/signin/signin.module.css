@@ -129,7 +129,6 @@
   color: #0d0a45;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .signin-general-container {
     padding: 15px;

@@ -8,16 +8,14 @@ export default function Footer() {
     <div className={styles["footer-general-container"]}>
       <div className={styles["footer-container"]}>
         <div className={styles["footer-left-part"]}>
-          <div className={styles["footer-logo-container"]}>
-            <Link href="/">
-              <img
-                src="/images/logo.png"
-                alt="logo"
-                className={styles["footer-img-logo"]}
-              />
-            </Link>
+          <Link className={styles["footer-logo-container"]} href="/">
+            <img
+              src="/images/logo.png"
+              alt="logo"
+              className={styles["footer-img-logo"]}
+            />
             <h2>Sustainable Development Science and Innovation</h2>
-          </div>
+          </Link>
           <div className={styles["footer-social-network"]}>
             <a
               href="https://www.facebook.com/profile.php?id=61581347322487"

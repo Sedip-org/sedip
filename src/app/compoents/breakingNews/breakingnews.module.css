@@ -29,8 +29,8 @@
   border-radius: 0.625rem;
   width: 100%;
   object-fit: cover;
-  min-height: 400px;
-  height: auto;
+  min-height: 100px;
+  max-height: 500px;
 }
 .breaking-news-left-descp-main {
   font-weight: 600;
@@ -118,13 +118,6 @@
   justify-content: center;
   gap: 0.625rem;
 }
-
-
-
-
-
-
-
 
 @media (min-width: 48em) and (max-width: 64em) {
   .breaking-news-container {

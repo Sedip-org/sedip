@@ -6,28 +6,35 @@ export default function Partners() {
       <div className={styles["partners-images"]}>
         <div className={styles["partners-image"]}>
           <img
-            src="/images/partner.png"
+            src="/images/partner-1.jpeg"
             alt="partner"
             className={styles["partners-img"]}
           />
         </div>
         <div className={styles["partners-image"]}>
           <img
-            src="/images/partner.png"
+            src="/images/partner-2.jpeg"
             alt="partner"
             className={styles["partners-img"]}
           />
         </div>
         <div className={styles["partners-image"]}>
           <img
-            src="/images/partner.png"
+            src="/images/partner-3.jpeg"
             alt="partner"
             className={styles["partners-img"]}
           />
         </div>
         <div className={styles["partners-image"]}>
           <img
-            src="/images/partner.png"
+            src="/images/partner-4.jpeg"
+            alt="partner"
+            className={styles["partners-img"]}
+          />
+        </div>
+        <div className={styles["partners-image"]}>
+          <img
+            src="/images/partner-5.jpeg"
             alt="partner"
             className={styles["partners-img"]}
           />
