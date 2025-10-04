@@ -1,3 +1,7 @@
+.container {
+  max-width: 100%;
+  width: 100%;
+}
 .login-admin-general-container {
   background-color: #110d57;
   min-height: 100vh;
@@ -6,7 +10,6 @@
   align-items: center;
   flex-direction: column;
   padding: 20px;
-  width: 100vw;
 }
 
 .login-admin-general-container-logo-design {
@@ -35,7 +38,7 @@
 .login-admin-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
   max-width: 500px;
   width: 100%;
@@ -136,6 +139,10 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1880px) {
+  .login-admin-general-container {
+  }
+}
 @media (max-width: 768px) {
   .login-admin-general-container {
     padding: 15px;
@@ -212,8 +219,8 @@
 /* Landscape orientation on mobile */
 @media (max-height: 600px) and (orientation: landscape) {
   .login-admin-general-container {
-    align-items: flex-start;
     padding-top: 20px;
+    align-items: center !important;
   }
 
   .login-admin-general-container-logo-design {

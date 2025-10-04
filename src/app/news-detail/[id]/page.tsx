@@ -33,8 +33,31 @@ export default function NewsDetail() {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     return text.split(urlRegex).map((part, index) => {
       if (part.match(urlRegex)) {
+        const isWhatsApp =
+          part.includes("wa.me") || part.includes("api.whatsapp.com");
+
+        if (isWhatsApp) {
+          return (
+            <a
+              key={index}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles["whatsapp-link"]}
+            >
+              {part}
+            </a>
+          );
+        }
+
         return (
-          <a key={index} href={part} target="_blank" rel="noopener noreferrer">
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles["link"]}
+          >
             {part}
           </a>
         );
@@ -42,6 +65,7 @@ export default function NewsDetail() {
       return part;
     });
   }
+
   async function fetchNews() {
     const { data, error } = await supabase
       .from("news")

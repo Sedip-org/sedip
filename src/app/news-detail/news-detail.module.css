@@ -87,6 +87,7 @@
   letter-spacing: 0%;
   vertical-align: middle;
   margin: 0;
+  text-align: justify;
 }
 
 .general-news-main-img {
@@ -117,6 +118,27 @@
   height: 250px;
   object-fit: cover;
   border-radius: 8px;
+}
+.link {
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.whatsapp-link {
+  display: block; /* ayrı sətirdə çıxacaq */
+  margin-top: 8px;
+  color: #25d366; /* WhatsApp rəngi */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.whatsapp-link:hover {
+  text-decoration: underline;
 }
 
 /* Tablet (768px - 1024px) */

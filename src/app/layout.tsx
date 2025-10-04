@@ -1,44 +1,40 @@
-"use client"; // əgər layout-un client component olmasını istəyirsənsə
-
 import "./global.css";
-import Navbar from "./compoents/navbar/navbar";
-import { Manrope } from "next/font/google";
-import LayoutClient from "../app/LayoutClient";
-import Footer from "./compoents/footer/Footer";
-import { usePathname } from "next/navigation";
-import { Inter, Roboto, Poppins } from "next/font/google";
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
+import { Inter } from "next/font/google";
+import { Metadata } from "next";
+import LayoutClient from "./LayoutClient";
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  title: 'Sedip - Social Entrepreneurship Development and Innovation Platform',
+  description: 'SEDIP platform connecting social entrepreneurs, events, conferences, and innovation opportunities.',
+  authors: [{ name: 'Esmer Quliyeva' }],
+  keywords: ['social entrepreneurship', 'innovation', 'SEDIP', 'conferences', 'events'],
+  icons: {
+    icon: [
+      { url: '/images/favicon.ico' },
+      { url: '/images/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/avicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-
-  const hideNavbarFooter =
-    pathname === "/login" ||
-    pathname === "/signin" ||
-    pathname === "/resetPassword" ||
-    pathname === "/admin" ||
-    pathname === "/adminLogin";
-
   return (
     <html lang="en">
       <body className={`container ${inter.className}`}>
-        <LayoutClient>
-          {!hideNavbarFooter && <Navbar />}
-          <div className="wrapper">{children}</div>
-          {!hideNavbarFooter && <Footer />}
-        </LayoutClient>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );
