@@ -5,7 +5,6 @@ import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./sedip-news.module.css";
 
 interface News {
   id?: string;
