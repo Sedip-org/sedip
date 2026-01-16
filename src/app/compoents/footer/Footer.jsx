@@ -93,7 +93,7 @@ export default function Footer() {
           <div className={styles["footer-links-group"]}>
             <h3>Membership</h3>
             <ul className={styles["footer-links-list"]}>
-              <li>
+              {/* <li>
                 <Link href="/login" className={styles["footer-link"]}>
                   Sign in
                 </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <Link href="/signin" className={styles["footer-link"]}>
                   Sign up
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/contact" className={styles["footer-link"]}>
                   Contact
