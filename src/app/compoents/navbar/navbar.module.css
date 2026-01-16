@@ -1,0 +1,123 @@
+.navbar-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5vw;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-style: Medium;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  background-color: #f0f0f0;
+}
+
+.navbar-left-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.logo-img {
+  width: 3.75rem;
+  height: 3.75rem;
+  object-fit: cover;
+}
+
+.navbar-logo-name {
+  font-weight: 600;
+  font-size: 0.625rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.navbar-right-part {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.navbar-btn {
+  background: #110d57;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 0.5625rem;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+@media (min-width: 48em) and (max-width: 64em) {
+  .navbar-container {
+    padding: 0.625rem 1.25vw;
+  }
+}
+@media (max-width: 48em) {
+  .hamburger {
+    display: block;
+  }
+  .navbar-container-active {
+    border-bottom: 0.0625rem solid gray;
+  }
+
+  .navbar-part-with-btn {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: transparent;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navbar-part-with-btn-active {
+    background-color: #f0f0f0;
+    max-height: 50rem;
+    padding: 1.25rem 0;
+  }
+
+  .navbar-right-part {
+    list-style: none;
+    flex-direction: column;
+    gap: 0.625rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navbar-right-part-active {
+    max-height: 31.25rem;
+    background: #ffffff;
+    max-width: 37.5rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1.25rem 0;
+    margin: auto;
+  }
+
+  .navbar-right-part li {
+    padding: 1.25rem;
+    border-bottom: 0.0625rem solid var(--10-dark-color, #0000001a);
+    font-family: Manrope;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+  }
+  .navbar-right-part li:last-child {
+    border-bottom: none;
+  }
+  .navbar-btn-active {
+    width: 100%;
+    padding: 0.625rem;
+  }
+}
